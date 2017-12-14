@@ -1,0 +1,505 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Baskerville v1.00\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-06-07 11:56:11+0000\n"
+"Last-Translator: anders <anders@andersnoren.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: 404.php:13
+#@ baskerville
+msgid "Error 404"
+msgstr "Error 404"
+
+#: 404.php:19
+#@ baskerville
+msgid "It seems like you have tried to open a page that doesn't exist. It could have been deleted, moved, or it never existed at all. You are welcome to search for what you are looking for with the form below."
+msgstr "Det verkar som att du har försökt öppna en sida som inte existerar. Den kan ha raderats, flyttats eller har aldrig existerat överhuvudtaget. Du är välkommen att söka efter det du letar efter i sökformuläret nedan."
+
+#: archive.php:8
+#@ baskerville
+msgid "Date"
+msgstr "Datum"
+
+#: archive.php:10
+#@ baskerville
+msgid "Month"
+msgstr "Månad"
+
+#: archive.php:12
+#@ baskerville
+msgid "Year"
+msgstr "År"
+
+#: archive.php:14
+#@ baskerville
+msgid "Category"
+msgstr "Kategori"
+
+#: archive.php:16
+#@ baskerville
+msgid "Tag"
+msgstr "Etikett"
+
+#: archive.php:19
+#@ baskerville
+msgid "Author"
+msgstr "Författare"
+
+#: archive.php:21
+#@ baskerville
+msgid "Archive"
+msgstr "Arkiv"
+
+#: comments.php:16
+#@ baskerville
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Kommentar"
+msgstr[1] "Kommentarer"
+
+#: comments.php:43
+#@ baskerville
+msgid "Pingback"
+msgid_plural "Pingbacks"
+msgstr[0] "Pingback"
+msgstr[1] "Pingbacks"
+
+#: comments.php:77
+#@ baskerville
+msgid "Comments are closed."
+msgstr "Kommentarsfältet är stängt."
+
+#: comments.php:84
+#@ baskerville
+msgid "Your email address will not be published."
+msgstr "Din e-postadress kommer inte att publiceras."
+
+#: comments.php:93
+#@ baskerville
+msgid "Name"
+msgstr "Namn"
+
+#: comments.php:96
+#@ baskerville
+msgid "Email"
+msgstr "E-postadress"
+
+#: comments.php:99
+#@ baskerville
+msgid "Website"
+msgstr "Webbplats"
+
+#: content-aside.php:11
+#: content-audio.php:5
+#: content-gallery.php:5
+#: content-image.php:5
+#: content-image.php:13
+#: content-link.php:8
+#: content-quote.php:8
+#: content-video.php:5
+#: content.php:5
+#@ baskerville
+msgid "Sticky post"
+msgstr "Klistrat inlägg"
+
+#: footer.php:27
+#: searchform.php:2
+#@ baskerville
+msgid "Search form"
+msgstr "Sökformulär"
+
+#: footer.php:62
+#: sidebar.php:27
+#@ baskerville
+msgid "Latest posts"
+msgstr "Senaste inläggen"
+
+#: footer.php:103
+#: sidebar.php:49
+#@ baskerville
+msgid "Text widget"
+msgstr "Textwidget"
+
+#: footer.php:104
+#: sidebar.php:53
+#@ baskerville
+msgid "These widgets are displayed because you haven't added any widgets of your own yet. You can do so at Appearance > Widgets in the WordPress settings."
+msgstr "Dessa widgets visas för att du inte har lagt till några egna widgets ännu. Du kan göra det på Utseende > Widgets i WordPress-inställningarna."
+
+#: footer.php:125
+#, php-format
+#@ baskerville
+msgid "Powered by <a href=\"%s\">WordPress</a>"
+msgstr "Drivs på <a href=\"%s\">WordPress</a>"
+
+#: footer.php:131
+#, php-format
+#@ baskerville
+msgid "Theme by <a href=\"%s\">Anders Noren</a>"
+msgstr "Tema av <a href=\"%s\">Anders Noren</a>"
+
+#: footer.php:131
+#@ baskerville
+msgid "To the top"
+msgstr "Till toppen"
+
+#: footer.php:131
+#@ baskerville
+msgid "Up"
+msgstr "Upp"
+
+#: functions.php:91
+#@ baskerville
+msgid "Footer A"
+msgstr "Sidfot A"
+
+#: functions.php:93
+#@ baskerville
+msgid "Widgets in this area will be shown in the left column in the footer."
+msgstr "Widgets i det här utrymmet kommer att visas i den vänstra kolumnen i sidfoten."
+
+#: functions.php:100
+#@ baskerville
+msgid "Footer B"
+msgstr "Sidfot B"
+
+#: functions.php:102
+#@ baskerville
+msgid "Widgets in this area will be shown in the middle column in the footer."
+msgstr "Widgets i det här utrymmet kommer att visas i mittenkolumnen i sidfoten."
+
+#: functions.php:109
+#@ baskerville
+msgid "Footer C"
+msgstr "Sidfot C"
+
+#: functions.php:111
+#@ baskerville
+msgid "Widgets in this area will be shown in the right column in the footer."
+msgstr "Widgets i det här utrymmet kommer att visas i den högra kolumnen i sidfoten."
+
+#: functions.php:118
+#@ baskerville
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: functions.php:120
+#@ baskerville
+msgid "Widgets in this area will be shown in the sidebar."
+msgstr "Widgets i det här utrymmet kommer att visas i sidebaren."
+
+#: functions.php:155
+#, php-format
+#@ baskerville
+msgid "Page %s"
+msgstr "Sida %s"
+
+#: functions.php:342
+#@ baskerville
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:342
+#@ baskerville
+msgid "(Edit)"
+msgstr "(Redigera)"
+
+#: functions.php:368
+#: functions.php:392
+#@ baskerville
+msgid "Edit"
+msgstr "Redigera"
+
+#: functions.php:370
+#: functions.php:394
+#@ baskerville
+msgid "Reply"
+msgstr "Svara"
+
+#: functions.php:382
+#@ baskerville
+msgid "Awaiting moderation"
+msgstr "Inväntar moderering"
+
+#: functions.php:433
+#@ baskerville
+msgid "Show email"
+msgstr "Visa e-postadress"
+
+#: functions.php:437
+#@ baskerville
+msgid "Check if you want to display your email address in single posts and the contributors page template."
+msgstr "Bocka för om du vill visa din e-postadress i enskilda inlägg och i skribenter-sidmallen."
+
+#: functions.php:461
+#: widgets/video-widget.php:70
+#@ baskerville
+msgid "Video URL"
+msgstr "Adress till video"
+
+#: functions.php:462
+#@ baskerville
+msgid "Audio URL"
+msgstr "Adress till ljudfil"
+
+#: functions.php:463
+#@ baskerville
+msgid "Quote content"
+msgstr "Citatets innehåll"
+
+#: functions.php:464
+#@ baskerville
+msgid "Quote attribution"
+msgstr "Citatets upphovsman"
+
+#: functions.php:465
+#@ baskerville
+msgid "Link URL"
+msgstr "Länkadress"
+
+#: functions.php:466
+#@ baskerville
+msgid "Link title"
+msgstr "Länktitel"
+
+#: functions.php:664
+#: functions.php:674
+#@ baskerville
+msgid "Logo"
+msgstr "Logotyp"
+
+#: image.php:34
+#@ baskerville
+msgid "About the attachment"
+msgstr "Om bilagan"
+
+#: image.php:57
+#: page.php:61
+#: single.php:265
+#: template-archives.php:133
+#: template-fullwidth.php:67
+#: template-nosidebar.php:67
+#@ baskerville
+msgid "We couldn't find any posts that matched your query. Please try again."
+msgstr "Vi kunde inte hitta några inlägg som matchar din sökning. Vänligen försök igen."
+
+#: index.php:15
+#, php-format
+#@ baskerville
+msgid "Page %s of %s"
+msgstr "Sida %s av %s"
+
+#: search.php:7
+#@ baskerville
+msgid "Search results"
+msgstr "Sökresultat"
+
+#: search.php:55
+#@ baskerville
+msgid "No results. Try again, would you kindly?"
+msgstr "Inga resultat. Försök igen, är du snäll?"
+
+#: searchform.php:3
+#@ baskerville
+msgid "Search"
+msgstr "Sök"
+
+#: single.php:179
+#@ baskerville
+msgid "Author archive"
+msgstr "Författararkiv"
+
+#: single.php:187
+#@ baskerville
+msgid "Author website"
+msgstr "Författarens webbplats"
+
+#: single.php:205
+#@ baskerville
+msgid "on Twitter"
+msgstr "på Twitter"
+
+#: single.php:237
+#@ baskerville
+msgid "Previous post:"
+msgstr "Föregående inlägg:"
+
+#: single.php:237
+#@ baskerville
+msgid "Previous post"
+msgstr "Föregående inlägg"
+
+#: single.php:245
+#@ baskerville
+msgid "Next post:"
+msgstr "Nästa inlägg:"
+
+#: single.php:245
+#@ baskerville
+msgid "Next post"
+msgstr "Nästa inlägg"
+
+#: template-archives.php:57
+#@ baskerville
+msgid "Last 30 Posts"
+msgstr "Senaste 30 inläggen"
+
+#: template-archives.php:71
+#@ baskerville
+msgid "Archives by Categories"
+msgstr "Kategoriarkiv"
+
+#: template-archives.php:77
+#@ baskerville
+msgid "Archives by Tags"
+msgstr "Etikettarkiv"
+
+#: template-archives.php:84
+#, php-format
+#@ baskerville
+msgid "View all posts in %s"
+msgstr "Visa alla inlägg i %s"
+
+#: template-archives.php:95
+#@ baskerville
+msgid "Contributors"
+msgstr "Författare"
+
+#: template-archives.php:101
+#@ baskerville
+msgid "Archives by Year"
+msgstr "Arkiv för årtal"
+
+#: template-archives.php:107
+#@ baskerville
+msgid "Archives by Month"
+msgstr "Arkiv för månader"
+
+#: template-archives.php:113
+#@ baskerville
+msgid "Archives by Day"
+msgstr "Arkiv för dagar"
+
+#: template-contributors.php:70
+#@ default
+msgid "posts"
+msgstr ""
+
+#: widgets/dribbble-widget.php:10
+#@ baskerville
+msgid "Displays your latest Dribbble photos."
+msgstr "Visar dina senaste Dribbble-bilder."
+
+#: widgets/dribbble-widget.php:79
+#: widgets/flickr-widget.php:58
+#: widgets/video-widget.php:64
+#@ baskerville
+msgid "Title"
+msgstr "Titel"
+
+#: widgets/dribbble-widget.php:85
+#@ baskerville
+msgid "Dribbble username"
+msgstr "Dribbble-användarnamn"
+
+#: widgets/dribbble-widget.php:91
+#: widgets/flickr-widget.php:70
+#@ baskerville
+msgid "Number of images to display:"
+msgstr "Antal bilder att visa:"
+
+#: widgets/flickr-widget.php:8
+#@ baskerville
+msgid "Displays your latest Flickr photos."
+msgstr "Visar dina senaste Flickr-fotografier."
+
+#: widgets/flickr-widget.php:64
+#@ baskerville
+msgid "Flickr ID (use <a target=\"_blank\" href=\"http://www.idgettr.com\">idGettr</a>):"
+msgstr "Flickr-ID (använd <a target=\"_blank\" href=\"http://www.idgettr.com\">idGettr</a>):"
+
+#: widgets/video-widget.php:8
+#@ baskerville
+msgid "Displays a video of your choosing."
+msgstr "Visar ett valfritt videoklipp."
+
+#: archive.php:62
+#: index.php:53
+#: search.php:39
+#@ baskerville
+msgid "Older posts"
+msgstr "Äldre inlägg"
+
+#: archive.php:64
+#: index.php:55
+#: search.php:41
+#@ baskerville
+msgid "Newer posts"
+msgstr "Nyare inlägg"
+
+#: comments.php:61
+#@ baskerville
+msgid "Older Comments"
+msgstr "Äldre kommentarer"
+
+#: comments.php:63
+#@ baskerville
+msgid "Newer Comments"
+msgstr "Nyare kommentarer"
+
+#: functions.php:220
+#@ baskerville
+msgid "Continue Reading"
+msgstr "Fortsätt läsa"
+
+#: functions.php:656
+#@ baskerville
+msgid "Baskerville Options"
+msgstr "Baskerville-alternativ"
+
+#: functions.php:659
+#@ baskerville
+msgid "Allows you to customize some settings for Baskerville."
+msgstr "Låter dig ändra Baskervilles inställningar."
+
+#: widgets/dribbble-widget.php:52
+#, php-format
+#@ baskerville
+msgid "Follow %s on Dribbble"
+msgstr "Följ %s på Dribbble"
+
+#: widgets/flickr-widget.php:36
+#@ baskerville
+msgid "More on Flickr"
+msgstr "Mer på Flickr"
+
+#: single.php:249
+#@ baskerville
+msgid "Edit post"
+msgstr "Redigera inlägg"
+
+#: comments.php:22
+#@ baskerville
+msgid "Add yours"
+msgstr "Skriv kommentar"
+
+#: header.php:25
+#@ baskerville
+msgid "Type and press enter"
+msgstr "Skriv och tryck enter"
+
