@@ -279,7 +279,7 @@ if ( ! function_exists( 'baskerville_custom_excerpt_length' ) ) {
 if ( ! function_exists( 'baskerville_new_excerpt_more' ) ) {
 
 	function baskerville_new_excerpt_more( $more ) {
-		return '... <a class="more-link" href="'. get_permalink( get_the_ID() ) . '">' . __(' Continue Reading', 'baskerville' ) . ' &rarr;</a>';
+		return '... <a class="more-link" href="'. get_permalink( get_the_ID() ) . '">' . __( 'Continue Reading', 'baskerville' ) . ' &rarr;</a>';
 	}
 	add_filter( 'excerpt_more', 'baskerville_new_excerpt_more' );
 
