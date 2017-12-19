@@ -114,6 +114,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.26 (XXXX-XX-XX)
+-------------------------
+- Fixed untranslateable string in functions.php
+
 Version 1.25 (2017-12-04)
 -------------------------
 - Fixed a typo in content-link.php
