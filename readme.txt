@@ -114,9 +114,21 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
-Version 1.26 (XXXX-XX-XX)
+Version 1.27 (2018-10-07)
+-------------------------
+- Updated with Gutenberg support
+	- Gutenberg editor styles
+	- Styling of Gutenberg blocks
+	- Custom Baskerville Gutenberg palette
+	- Custom Baskerville Gutenberg typography styles
+- Added option to disable Google Fonts with a translateable string
+- Improved compatibility with < PHP 5.5
+- Various fixes
+
+Version 1.26 (2018-05-23)
 -------------------------
 - Fixed untranslateable string in functions.php
+- Fixed the cookie consent checkbox not being displayed
 
 Version 1.25 (2017-12-04)
 -------------------------

@@ -19,9 +19,15 @@
 <div class="post-excerpt">
 
 	<?php 
+
+	$image_caption = '';
+
+	if ( has_post_thumbnail() ) {
+		$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+	}
 	
-	if ( ! empty( get_post( get_post_thumbnail_id() )->post_excerpt ) ) {
-		echo '<p class="image-caption">' . get_post( get_post_thumbnail_id() )->post_excerpt . '</p>';
+	if ( $image_caption ) {
+		echo '<p class="image-caption">' . $image_caption . '</p>';
 	} else {
 		the_excerpt( 100 ); 
 	}

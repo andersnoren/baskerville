@@ -28,13 +28,17 @@ Template Name: Full width template
 						
 							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">
 							
-								<?php the_post_thumbnail( 'post-image' ); ?>
+								<?php 
 								
-								<?php if ( ! empty( get_post( get_post_thumbnail_id() )->post_excerpt ) ) : ?>
+								the_post_thumbnail( 'post-image' );
+	
+								$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+								
+								if ( $image_caption ) : ?>
 												
 									<div class="media-caption-container">
 									
-										<p class="media-caption"><?php echo get_post( get_post_thumbnail_id() )->post_excerpt; ?></p>
+										<p class="media-caption"><?php echo $image_caption; ?></p>
 										
 									</div>
 									
@@ -56,11 +60,7 @@ Template Name: Full width template
 									
 				</div><!-- .post -->
 			
-			<?php endwhile; else: ?>
-			
-				<p><?php _e( "We couldn't find any posts that matched your query. Please try again.", "baskerville" ); ?></p>
-		
-			<?php endif; ?>
+			<?php endwhile; endif; ?>
 		
 			<div class="clear"></div>
 			

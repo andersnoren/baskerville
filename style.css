@@ -1109,7 +1109,7 @@ a.post-nav-next:hover { background-image: url(images/icons/1x/next-c.png); }
 
 
 /* -------------------------------------------------------------------------------- */
-/*	7. Post content
+/*	7. Post Content
 /* -------------------------------------------------------------------------------- */
 
 
@@ -1227,9 +1227,9 @@ code, kbd, pre {
 
 .post-content .highlight {
 	background: #fcf8a5;
-	width: auto;
 	display: inline;
 	padding: 2px 3px;
+	width: auto;
 }
 
 .post-content kbd,
@@ -1243,11 +1243,15 @@ code, kbd, pre {
 .post-content dl dt { font-weight: bold; }
 
 .post-content hr {
-	width: 50%;
-	height: 5px;
 	background: #EEE;
-	margin: 2em auto;
-	border: 0;
+	border: none;
+	height: 5px;
+	margin: 2.5em auto;
+	width: 50%;
+}
+
+.post-content hr.is-style-wide {
+	width: 100%;
 }
 
 .post-content ul {
@@ -1307,6 +1311,9 @@ code, kbd, pre {
 
 /* Post media --------------------------------------- */
 
+figure {
+	margin: 0;
+}
 
 .wp-caption,
 .post-content img {
@@ -1350,26 +1357,38 @@ img.alignright,
 }
 
 .post-content .aligncenter {
-	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .post-content .aligncenter a,
-.post-content .aligncenter img { margin: 0 auto; }
+.post-content .aligncenter img { 
+	margin: 0 auto; 
+}
 
 .post-content .wp-caption-text,
 .post-content .gallery-caption {
-	font-size: 0.8em;
+	font-size: .8em;
 	font-weight: 700;
 	color: #999;
+	padding-top: .5em;
 	text-align: center;
-	padding-top: 0.5em;
+	width: 100%;
 }
 
 .post-content .gallery-caption {
 	font-size: 16px;
 	line-height: 24px;
+}
+
+
+/* GUTENBERG CLASSES */
+
+.post-content .alignfull {
+	margin: 2.5em 0;
+	margin-left: calc( ( 1400px * .675 ) * -0.1 );
+	width: calc( 1400px * .675 );
+	max-width: calc( 1400px * .675 );
 }
 
 
@@ -1455,11 +1474,7 @@ img.alignright,
 	border: 2px solid #eee;
 	background: #fdfdfd;
 	border-radius: 3px;
-	-webkit-transition: background 0.2s ease-in-out;
-	-moz-transition: background 0.2s ease-in-out;
-	-ms-transition: background 0.2s ease-in-out;
-	-o-transition: background 0.2s ease-in-out;
-	transition: background 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out;
 	-webkit-appearance: none;
 }
 
@@ -1503,6 +1518,179 @@ img.alignright,
 .post-content input[type="submit"]:focus,
 .post-content input[type="submit"]:active {
 	outline: none;
+}
+
+
+/* Gutenberg Accent Colors --------------------------------------- */
+
+.post-content .has-background { background-color: #222; }
+
+.post-content .has-accent-color { color: #13C4A5; }
+.post-content .has-accent-background-color { background-color: #13C4A5; }
+
+.post-content .has-black-color { color: #222; }
+.post-content .has-black-background-color { background-color: #222; }
+
+.post-content .has-dark-gray-color { color: #444; }
+.post-content .has-dark-gray-background-color { background-color: #444; }
+
+.post-content .has-medium-gray-color { color: #666; }
+.post-content .has-medium-gray-background-color { background-color: #666; }
+
+.post-content .has-light-gray-color { color: #888; }
+.post-content .has-light-gray-background-color { background-color: #888; }
+
+.post-content .has-white-color { color: #fff; }
+.post-content .has-white-background-color { background-color: #fff; }
+
+
+/* Gutenberg Font Sizes --------------------------------------- */
+
+.post-content .has-small-font-size { font-size: .842em; }
+.post-content .has-regular-font-size { font-size: 1em; }
+
+.post-content .has-large-font-size,
+.post-content .has-larger-font-size {
+	line-height: 1.45;
+}
+
+.post-content .has-large-font-size { font-size: 1.333em; }
+.post-content .has-larger-font-size { font-size: 1.777em; }
+
+
+/* Block: Image --------------------------------------- */
+
+.wp-block-image .aligncenter > figcaption, 
+.wp-block-image .alignleft > figcaption, 
+.wp-block-image .alignright > figcaption, 
+.wp-block-image.is-resized > figcaption {
+	display: block;
+	width: 100%;
+}
+
+
+/* Block: Button --------------------------------------- */
+
+.post-content .wp-block-file__button,
+.post-content .wp-block-button__link {
+	border-radius: 4px;
+	font-weight: 500;
+	padding: .8em 1.4em;
+}
+
+.post-content .wp-block-file a {
+	color: inherit;
+}
+
+.post-content a.wp-block-file__button {
+	color: #fff;
+}
+
+.post-content .wp-block-file__button:hover,
+.post-content .wp-block-button__link:hover {
+	opacity: .85;
+	text-decoration: none;
+}
+
+
+/* Block: Quote --------------------------------------- */
+
+.post-content blockquote,
+.post-content .wp-block-quote.is-large, 
+.post-content .wp-block-quote.is-style-large {
+	margin-bottom: 1.25em;
+	padding: 0;
+}
+
+.post-content blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+.wp-block-quote.is-large p, 
+.wp-block-quote.is-style-large p {
+	font-size: 1.33em;
+	font-style: inherit;
+	line-height: 1.5;
+}
+
+.post-content .wp-block-quote cite {
+	text-align: center;
+}
+
+.wp-block-quote.is-large cite, 
+.wp-block-quote.is-style-large cite {
+	font-size: 0.8em;
+}
+
+
+/* Block: Pullquote --------------------------------------- */
+
+.wp-block-pullquote {
+	padding: 0;
+}
+
+
+/* Block: Gallery --------------------------------------- */
+
+.wp-block-gallery .blocks-gallery-image figcaption, 
+.wp-block-gallery .blocks-gallery-item figcaption {
+	margin: 0;
+	padding-bottom: 10px;
+}
+
+.post-content .wp-block-gallery.alignfull {
+	padding: 0 8px;
+}
+
+.post-content ul.wp-block-gallery:not(.alignfull) {
+	margin-left: 0;
+}
+
+
+/* Block: Cover Image --------------------------------------- */
+
+.wp-block-cover-image.alignfull {
+	min-height: 75vh;
+}
+
+.wp-block-cover-image p {
+	font-weight: 400;
+}
+
+
+/* Block: Column --------------------------------------- */
+
+.wp-block-column {
+	padding: 0 5px;
+}
+
+
+/* Block: Audio --------------------------------------- */
+
+.wp-block-audio audio {
+	width: 100%;
+}
+
+
+/* Block: File --------------------------------------- */
+
+.post-content .wp-block-file {
+	align-items: center;
+	background: #E6E9EC;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 0;
+	padding: 15px 20px;
+}
+
+.post-content .wp-block-file a:not(.wp-block-file__button) {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.post-content .wp-block-file__button {
+	flex-shrink: 0;
 }
 
 
@@ -1813,14 +2001,23 @@ div#disqus_thread {
 .comment-form { margin-top: 10px; }
 
 .comment-form p { 
-	margin-top: 14px; 
+	margin-top: 18px; 
 	position: relative;
 }
 
 .comment-form p:first-child { margin-top: 0; }
 
-.comment-form label,
-.comment-form .required { display: none; }
+.comment-form label {
+	display: block;
+	font-size: 16px;
+	margin-bottom: .5rem;
+}
+
+.comment-form input[type="checkbox"] + label {
+	display: inline;
+	font-size: 14px;
+	margin: 0 0 0 .5rem;
+}
 
 .comment-form input[type="text"],
 .comment-form input[type="email"],
@@ -2473,6 +2670,20 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 }
 
 
+@media ( max-width: 1555px ) {
+
+
+	/* Post Content */
+
+	.post-content .alignfull {
+		margin-left: calc( ( 90vw * .675 ) * -0.1 );
+		max-width: calc( 90vw * .675 );
+		width: calc( 90vw * .675 );
+	}
+
+}
+
+
 @media (max-width: 1440px) {
 	
 	
@@ -2556,6 +2767,15 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	.mobile-menu ul ul ul a { padding-left: 20%; } 
 	.mobile-menu ul ul ul ul a { padding-left: 25%; } 
 	.mobile-menu ul ul ul ul ul a { padding-left: 30%; } 
+
+
+	/* Post Content */
+
+	.post-content .alignfull {
+		margin-left: calc( 90vw * -0.1 );
+		max-width: 90vw;
+		width: 90vw;
+	}
 	
 }
 
@@ -2575,6 +2795,14 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	.section.header { padding: 50px 0; }
 	
 	.header .logo img { max-height: 60px; }
+
+	/* Post Content */
+
+	.post-content .alignfull {
+		margin-left: calc( 92vw * -0.1 );
+		max-width: 92vw;
+		width: 92vw;
+	}
 	
 	/* footer */
 	
@@ -2747,6 +2975,10 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	}
 	
 	.post-content blockquote cite { font-size: 0.8em; }
+
+	.post-content .alignfull {
+		margin-left: calc( 92vw * -0.06 );
+	}
 	
 	/* comments */
 	
@@ -2887,6 +3119,10 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	
 	
 	/* respond */
+
+	.comment-form label {
+		font-size: 14px;
+	}
 	
 	.comment-form input[type="text"],
 	.comment-form input[type="email"] { background-position: 94% center; background-size: 20px auto; }

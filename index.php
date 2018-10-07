@@ -12,7 +12,7 @@
 	
 		<div class="page-title section-inner">
 		
-			<h5><?php printf( __( 'Page %s of %s', 'baskerville' ), $paged, $wp_query->max_num_pages ); ?></h5>
+			<h5><?php printf( __( 'Page %1$s of %2$s', 'baskerville' ), $paged, $wp_query->max_num_pages ); ?></h5>
 			
 		</div>
 		

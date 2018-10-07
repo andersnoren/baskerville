@@ -45,15 +45,10 @@ if ( ! function_exists( 'baskerville_setup' ) ) {
 		add_theme_support( "custom-background", $args );
 
 		// Add nav menu
-		register_nav_menu( 'primary', 'Primary Menu' );
+		register_nav_menu( 'primary', __( 'Primary Menu', 'baskerville' ) );
 		
 		// Make the theme translation ready
-		load_theme_textdomain('baskerville', get_template_directory() . '/languages');
-		
-		$locale = get_locale();
-		$locale_file = get_template_directory() . "/languages/$locale.php";
-		if ( is_readable($locale_file) )
-		require_once($locale_file);
+		load_theme_textdomain( 'baskerville', get_template_directory() . '/languages' );
 		
 	}
 	add_action( 'after_setup_theme', 'baskerville_setup' );
@@ -92,13 +87,31 @@ if ( ! function_exists( 'baskerville_load_javascript_files' ) ) {
 if ( ! function_exists( 'baskerville_load_style' ) ) {
 
 	function baskerville_load_style() {
+		
 		if ( ! is_admin() ) {
-			wp_register_style( 'baskerville_googleFonts', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300|Pacifico:400' );
-			wp_register_style( 'baskerville_style', get_template_directory_uri() . '/style.css' );
-			
-			wp_enqueue_style( 'baskerville_googleFonts' );
-			wp_enqueue_style( 'baskerville_style' );
+
+			$dependencies = array();
+
+			/**
+			 * Translators: If there are characters in your language that are not
+			 * supported by the theme fonts, translate this to 'off'. Do not translate
+			 * into your own language.
+			 */
+			$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
+
+			if ( 'off' !== $google_fonts ) {
+
+				// Register Google Fonts
+				wp_register_style( 'baskerville_googleFonts', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300|Pacifico:400', false, 1.0, 'all' );
+				$dependencies[] = 'baskerville_googleFonts';
+
+			}
+
+			// Enqueue the styles
+			wp_enqueue_style( 'baskerville_style', get_template_directory_uri() . '/style.css', $dependencies, '1.0', 'all' );
+
 		}
+
 	}
 	add_action( 'wp_print_styles', 'baskerville_load_style' );
 
@@ -113,9 +126,21 @@ if ( ! function_exists( 'baskerville_load_style' ) ) {
 if ( ! function_exists( 'baskerville_add_editor_styles' ) ) {
 
 	function baskerville_add_editor_styles() {
+
 		add_editor_style( 'baskerville-editor-style.css' );
-		$font_url = '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300';
-		add_editor_style( str_replace( ',', '%2C', $font_url ) );
+
+		/**
+		 * Translators: If there are characters in your language that are not
+		 * supported by the theme fonts, translate this to 'off'. Do not translate
+		 * into your own language.
+		 */
+		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
+
+		if ( 'off' !== $google_fonts ) {
+			$font_url = '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300';
+			add_editor_style( str_replace( ',', '%2C', $font_url ) );
+		}
+
 	}
 	add_action( 'init', 'baskerville_add_editor_styles' );
 
@@ -406,7 +431,6 @@ if ( ! function_exists( 'baskerville_flexslider' ) ) {
 if ( ! function_exists( 'baskerville_comment' ) ) {
 
 	function baskerville_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
 			case 'pingback' :
 			case 'trackback' :
@@ -436,7 +460,7 @@ if ( ! function_exists( 'baskerville_comment' ) ) {
 							get_comment_author_link()
 						); ?>
 						
-						<p><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(  _x( '%s at %s', '[date] at [time of day]', 'baskerville' ), get_comment_date(), get_comment_time() ); ?></a></p>
+						<p><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(  _x( '%1$s at %2$s', '[date] at [time of day]', 'baskerville' ), get_comment_date(), get_comment_time() ); ?></a></p>
 						
 						<div class="comment-actions">
 						
@@ -611,6 +635,121 @@ class baskerville_Customize {
 
 // Setup the Theme Customizer settings and controls...
 add_action( 'customize_register' , array( 'baskerville_Customize' , 'register' ) );
+
+
+/* ---------------------------------------------------------------------------------------------
+   SPECIFY GUTENBERG SUPPORT
+------------------------------------------------------------------------------------------------ */
+
+
+if ( ! function_exists( 'baskerville_add_gutenberg_features' ) ) :
+
+	function baskerville_add_gutenberg_features() {
+
+		/* Gutenberg Palette --------------------------------------- */
+
+		add_theme_support( 'editor-color-palette', array(
+			array(
+				'name' 	=> _x( 'Cyan', 'Name of the cyan color in the Gutenberg palette', 'baskerville' ),
+				'slug' 	=> 'accent',
+				'color' => '#13C4A5',
+			),
+			array(
+				'name' 	=> _x( 'Black', 'Name of the black color in the Gutenberg palette', 'baskerville' ),
+				'slug' 	=> 'black',
+				'color' => '#222',
+			),
+			array(
+				'name' 	=> _x( 'Dark Gray', 'Name of the dark gray color in the Gutenberg palette', 'baskerville' ),
+				'slug' 	=> 'dark-gray',
+				'color' => '#444',
+			),
+			array(
+				'name' 	=> _x( 'Medium Gray', 'Name of the medium gray color in the Gutenberg palette', 'baskerville' ),
+				'slug' 	=> 'medium-gray',
+				'color' => '#666',
+			),
+			array(
+				'name' 	=> _x( 'Light Gray', 'Name of the light gray color in the Gutenberg palette', 'baskerville' ),
+				'slug' 	=> 'light-gray',
+				'color' => '#888',
+			),
+			array(
+				'name' 	=> _x( 'White', 'Name of the white color in the Gutenberg palette', 'baskerville' ),
+				'slug' 	=> 'white',
+				'color' => '#fff',
+			),
+		) );
+
+		/* Gutenberg Font Sizes --------------------------------------- */
+
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+				'name' 		=> _x( 'Small', 'Name of the small font size in Gutenberg', 'baskerville' ),
+				'shortName' => _x( 'S', 'Short name of the small font size in the Gutenberg editor.', 'baskerville' ),
+				'size' 		=> 16,
+				'slug' 		=> 'small',
+			),
+			array(
+				'name' 		=> _x( 'Regular', 'Name of the regular font size in Gutenberg', 'baskerville' ),
+				'shortName' => _x( 'M', 'Short name of the regular font size in the Gutenberg editor.', 'baskerville' ),
+				'size' 		=> 18,
+				'slug' 		=> 'regular',
+			),
+			array(
+				'name' 		=> _x( 'Large', 'Name of the large font size in Gutenberg', 'baskerville' ),
+				'shortName' => _x( 'L', 'Short name of the large font size in the Gutenberg editor.', 'baskerville' ),
+				'size' 		=> 24,
+				'slug' 		=> 'large',
+			),
+			array(
+				'name' 		=> _x( 'Larger', 'Name of the larger font size in Gutenberg', 'baskerville' ),
+				'shortName' => _x( 'XL', 'Short name of the larger font size in the Gutenberg editor.', 'baskerville' ),
+				'size' 		=> 32,
+				'slug' 		=> 'larger',
+			),
+		) );
+
+	}
+	add_action( 'after_setup_theme', 'baskerville_add_gutenberg_features' );
+
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
+   GUTENBERG EDITOR STYLES
+   --------------------------------------------------------------------------------------------- */
+
+
+if ( ! function_exists( 'baskerville_block_editor_styles' ) ) :
+
+	function baskerville_block_editor_styles() {
+
+		$dependencies = array();
+
+		/**
+		 * Translators: If there are characters in your language that are not
+		 * supported by the theme fonts, translate this to 'off'. Do not translate
+		 * into your own language.
+		 */
+		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
+
+		if ( 'off' !== $google_fonts ) {
+
+			// Register Google Fonts
+			wp_register_style( 'baskerville-block-editor-styles-font', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300', false, 1.0, 'all' );
+			$dependencies[] = 'baskerville-block-editor-styles-font';
+
+		}
+
+		// Enqueue the editor styles
+		wp_enqueue_style( 'baskerville-block-editor-styles', get_theme_file_uri( '/baskerville-gutenberg-editor-style.css' ), $dependencies, '1.0', 'all' );
+
+	}
+	add_action( 'enqueue_block_editor_assets', 'baskerville_block_editor_styles', 1 );
+
+endif;
+
 
 
 ?>

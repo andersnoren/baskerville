@@ -80,28 +80,4 @@
 		
 	<?php endif; ?>
 	
-	<?php $comments_args = array(
-	
-		'comment_notes_before' => 
-			'<p class="comment-notes">' . __( 'Your email address will not be published.', 'baskerville' ) . '</p>',
-	
-		'comment_field' => 
-			'<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="6" required>' . '</textarea></p>',
-		
-		'fields' => apply_filters( 'comment_form_default_fields', array(
-		
-			'author' =>
-				'<p class="comment-form-author">' .
-				'<input id="author" name="author" type="text" placeholder="' . __( 'Name', 'baskerville' ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" />' . '<label for="author">' . __( 'Author', 'baskerville' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '</p>',
-			
-			'email' =>
-				'<p class="comment-form-email">' . '<input id="email" name="email" type="text" placeholder="' . __( 'Email','baskerville' ) . '" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" /><label for="email">' . __( 'Email', 'baskerville' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '</p>',
-			
-			'url' =>
-			'<p class="comment-form-url">' . '<input id="url" name="url" type="text" placeholder="' . __( 'Website', 'baskerville' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /><label for="url">' . __( 'Website', 'baskerville' ) . '</label></p>')
-		),
-	);
-	
-	comment_form($comments_args);
-	
-	?>
+	<?php comment_form(); ?>
