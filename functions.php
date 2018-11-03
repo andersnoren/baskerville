@@ -646,6 +646,8 @@ if ( ! function_exists( 'baskerville_add_gutenberg_features' ) ) :
 
 	function baskerville_add_gutenberg_features() {
 
+		add_theme_support( 'align-wide' );
+
 		/* Gutenberg Palette --------------------------------------- */
 
 		add_theme_support( 'editor-color-palette', array(

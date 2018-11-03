@@ -72,7 +72,7 @@ Template Name: Archive template
 						                <li>
 						                	<a href="<?php echo get_the_permalink( $recent_post->ID ); ?>">
 						                		<?php echo get_the_title( $recent_post->ID ); ?> 
-						                		<span>(<?php the_time( get_option( 'date_format' ), $recent_post->ID ); ?>)</span>
+						                		<span>(<?php echo get_the_time( get_option( 'date_format' ), $recent_post->ID ); ?>)</span>
 						                	</a>
 						                </li>
 						            <?php endforeach; ?>
