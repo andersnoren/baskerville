@@ -2,7 +2,7 @@
 
 	Theme Name: Baskerville
     Text Domain: baskerville
-	Version: 1.29
+	Version: 1.32
 	Description: Baskerville is a beautiful, responsive and retina-ready masonry theme for hoarders. It's the perfect way to showcase your posts, videos, images and galleries, and share your favorite quotes and links. Features responsive design, retina-ready assets, full-width header image, Gutenberg support, support for all post formats, custom logo upload, custom widgets (video, Flickr and Dribbble), four page templates (including a contributors template), editor styling, like functionality via the ZillaLikes plugin and translation-ready code. Demo: http://www.andersnoren.se/themes/baskerville/
 	Tags: blog, three-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, portfolio, grid-layout
 	Author: Anders Norén
@@ -38,6 +38,7 @@
 /* -------------------------------------------------------------------------------- */
 /*	0. CSS Reset
 /* -------------------------------------------------------------------------------- */
+
 
 html, body { margin:0; padding:0;}
 
@@ -99,7 +100,7 @@ body {
 	border: none;
 	background: #f1f1f1;
 	color: #444;
-	font-family: 'Roboto', sans-serif;
+	font-family: Roboto, sans-serif;
 	font-size: 18px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -143,10 +144,6 @@ img {
 
 
 body a {
-	-webkit-transition: all 0.1s ease-in-out;
-	 -moz-transition: all 0.1s ease-in-out;
-	 -ms-transition: all 0.1s ease-in-out;
-	 -o-transition: all 0.1s ease-in-out;
 	 transition: all 0.1s ease-in-out;
 }
 
@@ -174,10 +171,6 @@ body a {
 .post-content input[type="submit"],
 .post-content input[type="reset"],
 .post-content input[type="button"] {
-	-webkit-transition: all 0.2s ease-in-out;
-	 -moz-transition: all 0.2s ease-in-out;
-	 -ms-transition: all 0.2s ease-in-out;
-	 -o-transition: all 0.2s ease-in-out;
 	 transition: all 0.2s ease-in-out;
 }
 
@@ -185,10 +178,6 @@ body a {
 .header,
 .portfolio-item a .portfolio-header-container,
 .featured-media a img {
-	-webkit-transition: all 0.3s ease-in-out;
-	 -moz-transition: all 0.3s ease-in-out;
-	 -ms-transition: all 0.3s ease-in-out;
-	 -o-transition: all 0.3s ease-in-out;
 	 transition: all 0.3s ease-in-out;
 }
 
@@ -337,14 +326,10 @@ body a {
 	height: 68px;
 	background: url(images/icons/1x/spyglass-w.png) no-repeat center;
 	background-size: 24px auto;
-	-webkit-opacity: 0.5;
-	-moz-opacity: 0.5;
 	opacity: 0.5;
 }
 
 .search-toggle.active {  
-	-webkit-opacity: 1;
-	-moz-opacity: 1;
 	opacity: 1;
 }
 
@@ -457,20 +442,12 @@ body a {
 	display: block;
 	left: -9999px;
 	top: 38px;
-	-webkit-opacity: 0;
-	-moz-opacity: 0;
 	opacity: 0;
 	z-index: 999;
-	-webkit-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 -moz-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 -ms-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 -o-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
-	 transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
 }
 
 .is_mobile .main-menu li ul {
-	-webkit-opacity: 1;
-	-moz-opacity: 1;
 	opacity: 1;
 	display: none;
 }
@@ -531,8 +508,6 @@ body a {
 .main-menu ul a:hover { color: #fff; }
 
 .main-menu li:hover > ul {
-	-webkit-opacity: 1;
-	-moz-opacity: 1;
 	opacity: 1;
 	left: 50%;
 	margin-left: -120px;
@@ -576,8 +551,6 @@ body a {
 	position: relative;
 	background: #fff;
 	border-radius: 3px;
-	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 	overflow: hidden;
 }
@@ -625,12 +598,7 @@ body a {
 .featured-media a img { margin: 0 auto; }
 
 .featured-media a:hover img { 
-	-webkit-transform: scale(1.1); 
-	-moz-transform: scale(1.1);
-	-o-transform: scale(1.1);
 	transform: scale(1.1);
-	-webkit-opacity: 0.8;
-	-moz-opacity: 0.8;
 	opacity: 0.8;
 }
 
@@ -858,8 +826,6 @@ body a {
 	top: 50%;
 	margin-top: -16px;
 	text-indent: -9999px;
-	-webkit-opacity: 0.5;
-	-moz-opacity: 0.5;
 	opacity: 0.5;
 }
 
@@ -874,8 +840,6 @@ body a {
 }
 
 .format-gallery .flex-direction-nav a:hover { 
-	-webkit-opacity: 1;
-	-moz-opacity: 1;
 	opacity: 1; 
 }
 
@@ -2111,8 +2075,6 @@ p.form-submit { margin-top: 30px; }
 	position: relative;
 	background: #fff;
 	border-radius: 3px;
-	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 	overflow: hidden;
 }
@@ -2277,8 +2239,6 @@ p.form-submit { margin-top: 30px; }
 .sidebar {
 	width: 27.5%;
 	background: #fff;
-	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 	border-radius: 6px;
 	overflow: hidden;
@@ -2527,6 +2487,14 @@ p.form-submit { margin-top: 30px; }
 /* -------------------------------------------------------------------------------- */
 
 
+.footer .row {
+	margin-top: -40px;	
+}
+
+.footer .one-third {
+	margin-top: 40px;
+}
+
 .footer .widget { 
 	margin-top: 40px;
 	border-top: 4px solid #333;
@@ -2618,7 +2586,12 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 
 	/* 2X images */
 
-	.search-toggle { background-image: url(images/icons/2x/spyglass-w.png); }
+	.search-toggle { background-image: url( images/icons/2x/spyglass-w.png ); }
+
+	.wrapper .searchform .searchsubmit,
+	.footer .searchform .searchsubmit { background-image: url( images/icons/2x/spyglass-g.png ); }
+	.wrapper .searchform .searchsubmit:hover,
+	.footer .searchform .searchsubmit:hover { background-image: url( images/icons/2x/spyglass-c.png ); }
 	
 	.post .sticky-post { background-image: url(images/icons/2x/tack-w.png); }
 	
@@ -2636,6 +2609,8 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	.single .format-gallery .flex-direction-nav .flex-prev { background-image: url(images/icons/2x/chevron-left-w-shade.png); }
 	.format-gallery .flex-direction-nav .flex-next,
 	.single .format-gallery .flex-direction-nav .flex-next { background-image: url(images/icons/2x/chevron-right-w-shade.png); }
+
+	.post-author:before { background-image: url( images/icons/2x/author-w.png ); }
 	
 	.single .post-meta p.post-date { background-image: url(images/icons/2x/clock-g.png); }
 	.single .post-meta a.zilla-likes { background-image: url(images/icons/2x/heart-g.png); }
@@ -2647,6 +2622,14 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	.author-links a.author-link-website { background-image: url(images/icons/2x/home-w.png); }
 	.author-links a.author-link-mail { background-image: url(images/icons/2x/social/mail-w.png); }
 	.author-links a.author-link-twitter { background-image: url(images/icons/2x/social/twitter-w.png); }
+
+	a.post-nav-prev { background-image: url( images/icons/2x/prev-g.png ); }
+	a.post-nav-prev:hover { background-image: url( images/icons/2x/prev-c.png ); }
+	a.post-nav-next { background-image: url( images/icons/2x/next-g.png ); }
+	a.post-nav-next:hover { background-image: url( images/icons/2x/next-c.png ); }
+
+	.single a.post-edit-link { background-image: url( images/icons/2x/edit-g.png ); }
+	.single a.post-edit-link:hover { background-image: url( images/icons/2x/edit-c.png ); }
 	
 	.comment.bypostauthor:after { background-image: url(images/icons/2x/author-w.png); }
 	
@@ -2807,8 +2790,6 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	/* footer */
 	
 	.footer .one-third { width: 47.5%; }
-	
-	.footer .column-3 { display: none; }
 	
 	/* credits */
 	
@@ -3045,17 +3026,16 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	
 	.footer { padding: 30px 0; }
 	
-	.footer .one-third { 
-		width: 100%; 
+	.footer .one-third {
 		float: none;
-		padding: 40px 0 0 0;
-		border-top: 4px solid #333;
 		margin: 40px 0 0 0;
+		width: 100%; 
 	}
-	
-	.footer .one-third:first-child { margin-top: 0; border-top: none; padding-top: 0; }
-	
-	.footer .column-3 { display: block; }
+
+	.footer .one-third + .one-third {
+		border-top: 4px solid #333;
+		padding: 40px 0 0 0;
+	}
 	
 	/* credits */
 	
