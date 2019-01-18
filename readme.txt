@@ -114,6 +114,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 1.33 (2019-01-18)
+-------------------------
+- Fixed the global $current_user variable being overwritten in the contributor template
+
 Version 1.32 (2018-12-07)
 -------------------------
 - Fixed Gutenberg style changes required due to changes in the block editor CSS and classes

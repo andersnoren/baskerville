@@ -66,7 +66,7 @@
 		
 		<p class="credits-right fright">
 			
-			<span><?php printf( __( 'Theme by <a href="%s">Anders Noren</a>', 'baskerville' ), 'http://www.andersnoren.se' ); ?> &mdash; </span><a class="tothetop" title="<?php _e( 'To the top', 'baskerville' ); ?>" href="#"><?php _e( 'Up', 'baskerville' ); ?> &uarr;</a>
+			<span><?php printf( __( 'Theme by <a href="%s">Anders Noren</a>', 'baskerville' ), 'https://www.andersnoren.se' ); ?> &mdash; </span><a class="tothetop" title="<?php _e( 'To the top', 'baskerville' ); ?>" href="#"><?php _e( 'Up', 'baskerville' ); ?> &uarr;</a>
 			
 		</p>
 		
