@@ -13,6 +13,12 @@
 	
 	<body <?php body_class(); ?>>
 
+		<?php 
+		if ( function_exists( 'wp_body_open' ) ) {
+			wp_body_open(); 
+		}
+		?>
+
 		<?php $background_image_url = get_header_image() ? get_header_image() : get_template_directory_uri() . '/images/header.jpg'; ?>
 	
 		<div class="header section small-padding bg-dark bg-image" style="background-image: url( <?php echo $background_image_url; ?> );">
