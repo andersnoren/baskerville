@@ -114,6 +114,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.0.1 (2020-02-06)
+-------------------------
+- Fixed incorrect text domain.
+
 Version 2.0.0 (2020-02-06)
 -------------------------
 - Fixed notice when using the "Video" post format and not adding the more tag (kudos to @terriann).

@@ -22,7 +22,7 @@
 		
 		?>
 
-		<a class="skip-link button" href="#site-content"><?php _e( 'Skip to the content', 'chaplin' ); ?></a>
+		<a class="skip-link button" href="#site-content"><?php _e( 'Skip to the content', 'baskerville' ); ?></a>
 	
 		<div class="header section small-padding bg-dark bg-image" style="background-image: url( <?php echo esc_url( $background_image_url ); ?> );">
 		
