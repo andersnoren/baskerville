@@ -125,30 +125,30 @@ Version 2.0.0 (2020-02-06)
 - Updated the theme description to remove mention of the video widget, which was removed in version 1.20.
 - Removed usage of the title attribute on link elements.
 - Added theme tags for "block-styles" and "wide-blocks".
-- Removed get_post_meta call for audio url in content-audio.php, since the variable wasn't being used.
+- Removed get_post_meta call for audio url in content-audio.php, since the variable hasn't been used for a couple of years ¯\_(ツ)_/¯
 - Added checks for post_password_required() before outputting post media.
 - Cleaned up some escaping, conditionals, etc.
 - Removed superfluous uses of wp_reset_query().
-- Added wp_link_pages() everywhere the_content(); is called.
-- Unified archive and search into index.php.
+- Added calls to wp_link_pages() after each the_content() call.
+- Unified archive.php, search.php, and index.php into index.php.
 - Improved handling of archive titles, better SEO on archives.
 - Added output of archive description.
 - Replaced link and div toggles in the header with button elements.
-- Made the search form more accessible, less error prone.
-- Added more extensive base styles for inputs.
-- Added default font sizes for titles outside of the post content.
-- Changed image.php post-title to an h1 element.
-- Don't use a h1 element in the header outside of the front page.
-- Removed imagesloaded from the theme and registered the bundled WordPress version instead.
+- Made the search form more accessible.
+- Added base styles for input elements outside of post content, as well as for more types of inputs.
+- Added base styles for heading elements outside of the post content.
+- Changed the post title on image.php to a h1 element.
+- Updated the blog title to only be a h1 element on the front page.
+- Removed imagesloaded from the theme and registered the version included in Core instead.
 - Updated Flexslider to 2.7.2, and included a non-minified version as well as the enqueued, minified one.
-- Added theme version to theme enqueues.
+- Added theme version to the enqueues of style.css and js/global.js.
 - Optimized image files.
 - Added skip link.
 - Made sure all elements has outline on focus.
 - Added display of main menu sub menus on focus.
-- Made edit icon @2x.
-- Added sticky icon output to content-status.php.
-- Removed the languages folder, since GlotPress handles that for us nowadays.
+- Made edit icon @2x on high-retina screens.
+- Added output of sticky indicator to content-status.php.
+- Removed the languages folder, since GlotPress handles that for us now.
 
 Version 1.35 (2019-04-07)
 -------------------------
