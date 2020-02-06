@@ -17,18 +17,19 @@
 		if ( function_exists( 'wp_body_open' ) ) {
 			wp_body_open(); 
 		}
+		
+		$background_image_url = get_header_image() ? get_header_image() : get_template_directory_uri() . '/images/header.jpg'; 
+		
 		?>
 
-		<?php $background_image_url = get_header_image() ? get_header_image() : get_template_directory_uri() . '/images/header.jpg'; ?>
+		<a class="skip-link button" href="#site-content"><?php _e( 'Skip to the content', 'chaplin' ); ?></a>
 	
-		<div class="header section small-padding bg-dark bg-image" style="background-image: url( <?php echo $background_image_url; ?> );">
+		<div class="header section small-padding bg-dark bg-image" style="background-image: url( <?php echo esc_url( $background_image_url ); ?> );">
 		
 			<div class="cover"></div>
 			
 			<div class="header-search-block bg-graphite hidden">
-			
 				<?php get_search_form(); ?>
-			
 			</div><!-- .header-search-block -->
 					
 			<div class="header-inner section-inner">
@@ -37,21 +38,27 @@
 				
 					<div class="blog-logo">
 					
-				        <a class="logo" href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>' rel='home'>
-				        	<img src='<?php echo esc_url( get_theme_mod( 'baskerville_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>'>
+				        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				        	<img src="<?php echo esc_url( get_theme_mod( 'baskerville_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>">
 				        </a>
 			        
 					</div>
 			
 				<?php elseif ( get_bloginfo( 'description' ) || get_bloginfo( 'title' ) ) : ?>
+
+					<?php 
+					
+					$blog_title_elem = ( ( is_front_page() || is_home() ) && ! is_page() ) ? 'h1' : 'div';
+
+					?>
 								
-					<h1 class="blog-title">
-						<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ) . ' &mdash; ' . esc_attr( get_bloginfo( 'description' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'title' ) ); ?></a>
-					</h1>
+					<<?php echo $blog_title_elem; ?> class="blog-title">
+						<a href="<?php echo esc_url( home_url() ); ?>" rel="home"><?php echo get_bloginfo( 'title' ); ?></a>
+					</<?php echo $blog_title_elem; ?>>
 					
 					<?php if ( get_bloginfo( 'description' ) ) : ?>
 					
-						<h3 class="blog-description"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>
+						<h3 class="blog-description"><?php echo get_bloginfo( 'description' ); ?></h3>
 						
 					<?php endif; ?>
 										
@@ -65,15 +72,13 @@
 		
 			<div class="navigation-inner section-inner">
 			
-				<div class="nav-toggle fleft hidden">
+				<button class="nav-toggle toggle fleft hidden">
 					
 					<div class="bar"></div>
 					<div class="bar"></div>
 					<div class="bar"></div>
 					
-					<div class="clear"></div>
-					
-				</div>
+				</button>
 						
 				<ul class="main-menu">
 				
@@ -103,11 +108,13 @@
 					
 					?>
 											
-				 </ul><!-- .main-menu -->
+				</ul><!-- .main-menu -->
 				 
-				 <a class="search-toggle fright" href="#"></a>
+				<button class="search-toggle toggle fright">
+					<span class="screen-reader-text"><?php _e( 'Toggle search field', 'baskerville' ); ?></span>
+				</button>
 				 
-				 <div class="clear"></div>
+				<div class="clear"></div>
 				 
 			</div><!-- .navigation-inner -->
 			

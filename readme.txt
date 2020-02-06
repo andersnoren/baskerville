@@ -2,7 +2,7 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.4
-Tested up to: 5.0
+Tested up to: 5.3.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -113,6 +113,36 @@ Source: http://www.unsplash.com
 
 
 == Changelog ==
+
+Version 2.0.0 (2020-02-06)
+-------------------------
+- Fixed notice when using the "Video" post format and not adding the more tag (kudos to @terriann).
+- Updated "Tested up to" to 5.3.2.
+- Updated the theme description to remove mention of the video widget, which was removed in version 1.20.
+- Removed usage of the title attribute on link elements.
+- Added theme tags for "block-styles" and "wide-blocks".
+- Removed get_post_meta call for audio url in content-audio.php, since the variable wasn't being used.
+- Added checks for post_password_required() before outputting post media.
+- Cleaned up some escaping, conditionals, etc.
+- Removed superfluous uses of wp_reset_query().
+- Added wp_link_pages() everywhere the_content(); is called.
+- Unified archive and search into index.php.
+- Improved handling of archive titles, better SEO on archives.
+- Added output of archive description.
+- Replaced link and div toggles in the header with button elements.
+- Made the search form more accessible, less error prone.
+- Added more extensive base styles for inputs.
+- Added default font sizes for titles outside of the post content.
+- Changed image.php post-title to an h1 element.
+- Don't use a h1 element in the header outside of the front page.
+- Removed imagesloaded from the theme and registered the bundled WordPress version instead.
+- Updated Flexslider to 2.7.2, and included a non-minified version as well as the enqueued, minified one.
+- Added theme version to theme enqueues.
+- Optimized image files.
+- Added skip link.
+- Made sure all elements has outline on focus.
+- Added display of main menu sub menus on focus.
+- Made edit icon @2x.
 
 Version 1.35 (2019-04-07)
 -------------------------

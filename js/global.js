@@ -42,6 +42,11 @@ jQuery(document).ready(function($) {
 			$(".mobile-navigation").hide();
 		}
 	});
+
+	// Display dropdown menus on focus.
+	$( '.main-menu a' ).on( 'blur focus', function( e ) {
+		$( this ).parents( 'li.menu-item-has-children' ).toggleClass( 'focus' );
+	} );
 	
 	
 	// Load Flexslider

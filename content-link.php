@@ -1,9 +1,7 @@
 <div class="post-header">
 
 	<?php if ( get_the_title() ) : ?>
-	
-	    <h2 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-
+	    <h2 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 	<?php endif; ?>
     
     <?php if ( is_sticky() ) echo '<span class="sticky-post">' . __( 'Sticky post', 'baskerville' ) . '</span>'; ?>
@@ -32,7 +30,7 @@
 	<div class="post-excerpt">
 		
 		<?php 
-		if ( $pos = strpos( $post->post_content, '<!--more-->' ) ) {
+		if ( strpos( $post->post_content, '<!--more-->' ) ) {
 			echo '<p>' . mb_strimwidth( $content_parts['extended'], 0, 200, '...' ) . '</p>';
 		} else {
 			the_excerpt( 100 );
@@ -44,5 +42,3 @@
 <?php endif; ?>
 									                                    	    
 <?php baskerville_meta(); ?>
-            
-<div class="clear"></div>

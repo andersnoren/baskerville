@@ -1,65 +1,73 @@
 <?php get_header(); ?>
 
-<div class="wrapper section medium-padding">
+<div class="wrapper section medium-padding" id="site-content">
 
 	<div class="section-inner">
 
 		<div class="content fleft">
 												        
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<?php 
 			
-				<div id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-														
-					<div class="featured-media">
+			if ( have_posts() ) : 
+			
+				while ( have_posts() ) : 
+				
+					the_post(); 
 					
-						<?php $image_array = wp_get_attachment_image_src( $post->ID, 'full', false ); ?>
-					
-						<a href="<?php echo esc_url( $image_array[0] ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment">
-							<?php echo wp_get_attachment_image( $post->ID, 'post-image' ); ?>
-						</a>
-					
-					</div><!-- .featured-media -->
-					
-					<div class="post-header">
-					
-						<h2 class="post-title"><?php echo basename( get_attached_file( $post->ID ) ); ?></h2>
-					
-					</div><!-- .post-header -->
-																	
-					<div class="post-meta-container">
-					
-						<div class="post-author">
+					?>
+				
+					<div id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+															
+						<div class="featured-media">
 						
-							<div class="post-author-content">
+							<?php $image_url = wp_get_attachment_image_url( $post->ID, 'full' ); ?>
+						
+							<a href="<?php echo esc_url( $image_url ); ?>" rel="attachment">
+								<?php echo wp_get_attachment_image( $post->ID, 'post-image' ); ?>
+							</a>
+						
+						</div><!-- .featured-media -->
+						
+						<div class="post-header">
+						
+							<h1 class="post-title"><?php echo basename( get_attached_file( $post->ID ) ); ?></h1>
+						
+						</div><!-- .post-header -->
+																		
+						<div class="post-meta-container">
+						
+							<div class="post-author">
 							
-								<h4><?php _e( 'About the attachment', 'baskerville' ); ?></h4>
+								<div class="post-author-content">
 								
-								<p><?php the_excerpt(); ?></p>
+									<h4><?php _e( 'About the attachment', 'baskerville' ); ?></h4>
+									
+									<p><?php the_excerpt(); ?></p>
+								
+								</div><!-- .post-author-content -->
 							
-							</div><!-- .post-author-content -->
+							</div><!-- .post-author -->
+							
+							<div class="post-meta">
+							
+								<p class="post-date"><?php the_time( get_option( 'date_format' ) ); ?></p>
+								<p class="image-resolution"><?php echo $image_array[1] . ' <span style="text-transform:lowercase;">x</span>' . $image_array[2] . ' px'; ?></p>
+							
+							</div><!-- .post-meta -->
+							
+							<div class="clear"></div>
 						
-						</div><!-- .post-author -->
+						</div><!-- .post-meta-container -->
 						
-						<div class="post-meta">
+						<?php 
 						
-							<p class="post-date"><?php the_time( get_option( 'date_format' ) ); ?></p>
-							<p class="image-resolution"><?php echo $image_array[1] . ' <span style="text-transform:lowercase;">x</span>' . $image_array[2] . ' px'; ?></p>
-						
-						</div><!-- .post-meta -->
-						
-						<div class="clear"></div>
+						comments_template( '', true );
 					
-					</div><!-- .post-meta-container -->
-					
-					<?php comments_template( '', true );
-				
-				endwhile;
+					endwhile;
 			
-				else: ?>
-			
-					<p><?php _e( "We couldn't find any posts that matched your query. Please try again.", "baskerville" ); ?></p>
+				endif;
 				
-				<?php endif; ?>    
+				?>
 					
 			</div><!-- .post -->
 				

@@ -13,9 +13,7 @@
 		<div id="search" class="widget widget_search">
 		
 			<div class="widget-content">
-			
 	            <?php get_search_form(); ?>
-	            
 			</div>
 			
 	    </div><!-- .widget_search -->
@@ -25,16 +23,25 @@
 	        <div class="widget-content">
 	        
 	            <h3 class="widget-title"><?php _e("Latest posts", "baskerville") ?></h3>
+
+				<?php
+
+				$recent_posts = get_posts( array( 
+					'numberposts' 	=> '5', 
+					'post_status' 	=> 'publish' 
+				) );
+
+				if ( $recent_posts ) : ?>
 	            
-	            <ul>
-					<?php
-						$args = array( 'numberposts' => '5', 'post_status' => 'publish' );
-						$recent_posts = wp_get_recent_posts( $args );
-						foreach( $recent_posts as $recent ){
-							echo '<li><a href="' . get_permalink( $recent["ID"]) . '" title="' . esc_attr( $recent["post_title"]).'" >' .   $recent["post_title"] . '</a></li>';
+					<ul>
+						<?php
+						foreach ( $recent_posts as $recent_post ) {
+							echo '<li><a href="' . get_permalink( $recent_post->ID ) . '">' . get_the_title( $recent_post->ID ) . '</a></li>';
 						}
-					?>
-				</ul>
+						?>
+					</ul>
+
+				<?php endif; ?>
 				
 			</div>
 			
@@ -52,7 +59,7 @@
 	        	
 	        		<p><?php _e( "These widgets are displayed because you haven't added any widgets of your own yet. You can do so at Appearance > Widgets in the WordPress settings.", "baskerville" ); ?></p>
 				
-				</div>	
+				</div>
 				
 			</div>
 			

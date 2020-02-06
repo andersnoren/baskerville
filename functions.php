@@ -15,8 +15,8 @@ if ( ! function_exists( 'baskerville_setup' ) ) {
 			
 		// Post thumbnails
 		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size( 600, 9999 );
 		add_image_size( 'post-image', 945, 9999 );
-		add_image_size( 'post-thumbnail', 600, 9999 );
 		
 		// Post formats
 		add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
@@ -61,61 +61,56 @@ if ( ! function_exists( 'baskerville_setup' ) ) {
    --------------------------------------------------------------------------------------------- */
 
 
-if ( ! function_exists( 'baskerville_load_javascript_files' ) ) {
-
+if ( ! function_exists( 'baskerville_load_javascript_files' ) ) :
 	function baskerville_load_javascript_files() {
 
-		if ( ! is_admin() ) {
-			wp_register_script( 'baskerville_imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.js', '', true );
-			wp_register_script( 'baskerville_flexslider', get_template_directory_uri() . '/js/flexslider.min.js', '', true );
+		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-			wp_enqueue_script( 'baskerville_global', get_template_directory_uri() . '/js/global.js', array( 'jquery', 'masonry', 'baskerville_imagesloaded', 'baskerville_flexslider' ), '', true );
+		wp_register_script( 'baskerville_flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array(), '2.7.2' );
 
-			if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+		wp_enqueue_script( 'baskerville_global', get_template_directory_uri() . '/js/global.js', array( 'jquery', 'masonry', 'imagesloaded', 'baskerville_flexslider' ), $theme_version );
+
+		if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
 		}
+
 	}
 	add_action( 'wp_enqueue_scripts', 'baskerville_load_javascript_files' );
-
-}
+endif;
 
 
 /* ---------------------------------------------------------------------------------------------
    ENQUEUE STYLES
    --------------------------------------------------------------------------------------------- */
 
-
-if ( ! function_exists( 'baskerville_load_style' ) ) {
-
+if ( ! function_exists( 'baskerville_load_style' ) ) :
 	function baskerville_load_style() {
-		
-		if ( ! is_admin() ) {
 
-			$dependencies = array();
+		$dependencies = array();
 
-			/**
-			 * Translators: If there are characters in your language that are not
-			 * supported by the theme fonts, translate this to 'off'. Do not translate
-			 * into your own language.
-			 */
-			$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
+		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-			if ( 'off' !== $google_fonts ) {
+		/**
+		 * Translators: If there are characters in your language that are not
+		 * supported by the theme fonts, translate this to 'off'. Do not translate
+		 * into your own language.
+		 */
+		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
 
-				// Register Google Fonts
-				wp_register_style( 'baskerville_googleFonts', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300|Pacifico:400', false, 1.0, 'all' );
-				$dependencies[] = 'baskerville_googleFonts';
+		if ( 'off' !== $google_fonts ) {
 
-			}
-
-			// Enqueue the styles
-			wp_enqueue_style( 'baskerville_style', get_template_directory_uri() . '/style.css', $dependencies, '1.0', 'all' );
+			// Register Google Fonts
+			wp_register_style( 'baskerville_googleFonts', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300|Pacifico:400', array(), $theme_version );
+			$dependencies[] = 'baskerville_googleFonts';
 
 		}
 
+		// Enqueue the styles
+		wp_enqueue_style( 'baskerville_style', get_template_directory_uri() . '/style.css', $dependencies, $theme_version );
+
 	}
 	add_action( 'wp_print_styles', 'baskerville_load_style' );
-
-}
+endif;
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -316,13 +311,14 @@ if ( ! function_exists( 'baskerville_new_excerpt_more' ) ) {
    --------------------------------------------------------------------------------------------- */
 
 
-if ( ! function_exists( 'baskerville_meta' ) ) {
-
-	function baskerville_meta() { ?>
+if ( ! function_exists( 'baskerville_meta' ) ) :
+	function baskerville_meta() {
+		
+		?>
 
 		<div class="post-meta">
 		
-			<a class="post-date" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_time( 'Y/m/d' ); ?></a>
+			<a class="post-date" href="<?php the_permalink(); ?>"><?php the_time( 'Y/m/d' ); ?></a>
 			
 			<?php
 			
@@ -341,9 +337,97 @@ if ( ! function_exists( 'baskerville_meta' ) ) {
 		</div><!-- .post-meta -->
 		
 	<?php
+
+	}
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
+   REMOVE ARCHIVE PREFIXES
+   --------------------------------------------------------------------------------------------- */
+
+if ( ! function_exists( 'baskerville_remove_archive_title_prefix' ) ) :
+
+	function baskerville_remove_archive_title_prefix( $title ) {
+		if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_year() ) {
+			$title = get_the_date( 'Y' );
+		} elseif ( is_month() ) {
+			$title = get_the_date( 'F Y' );
+		} elseif ( is_day() ) {
+			$title = get_the_date( get_option( 'date_format' ) );
+		} elseif ( is_tax( 'post_format' ) ) {
+			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+				$title = _x( 'Asides', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+				$title = _x( 'Galleries', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+				$title = _x( 'Images', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+				$title = _x( 'Videos', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+				$title = _x( 'Quotes', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+				$title = _x( 'Links', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+				$title = _x( 'Statuses', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+				$title = _x( 'Audio', 'post format archive title', 'baskerville' );
+			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+				$title = _x( 'Chats', 'post format archive title', 'baskerville' );
+			}
+		} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
+		} elseif ( is_tax() ) {
+			$title = single_term_title( '', false );
+		} elseif ( is_search() ) {
+			$title = '&lsquo;' . get_search_query() . '&rsquo;';
+		} else {
+			$title = __( 'Archives', 'baskerville' );
+		} // End if().
+		return $title;
+	}
+	add_filter( 'get_the_archive_title', 'baskerville_remove_archive_title_prefix' );
+
+endif;
+
+
+/* ---------------------------------------------------------------------------------------------
+   GET ARCHIVE PREFIX
+   --------------------------------------------------------------------------------------------- */
+
+if ( ! function_exists( 'baskerville_get_archive_title_prefix' ) ) :
+
+	function baskerville_get_archive_title_prefix() {
+		if ( is_category() ) {
+			$title_prefix = __( 'Category', 'baskerville' );
+		} elseif ( is_tag() ) {
+			$title_prefix = __( 'Tag', 'baskerville' );
+		} elseif ( is_author() ) {
+			$title_prefix = __( 'Author', 'baskerville' );
+		} elseif ( is_year() ) {
+			$title_prefix = __( 'Year', 'baskerville' );
+		} elseif ( is_month() ) {
+			$title_prefix = __( 'Month', 'baskerville' );
+		} elseif ( is_day() ) {
+			$title_prefix = __( 'Day', 'baskerville' );
+		} elseif ( is_tax() ) {
+			$tax = get_taxonomy( get_queried_object()->taxonomy );
+			$title_prefix = $tax->labels->singular_name;
+		} elseif ( is_search() ) {
+			$title_prefix = __( 'Search', 'baskerville' );
+		} else {
+			$title_prefix = __( 'Archives', 'baskerville' );
+		}
+		return $title_prefix;
 	}
 
-}
+endif;
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -374,7 +458,7 @@ if ( ! function_exists( 'baskerville_admin_css' ) ) {
 
 if ( ! function_exists( 'baskerville_flexslider' ) ) {
 
-	function baskerville_flexslider( $size = 'thumbnail' ) {
+	function baskerville_flexslider( $size = 'post-thumbnail' ) {
 
 		$attachment_parent = is_page() ? $post->ID : get_the_ID();
 

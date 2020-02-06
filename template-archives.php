@@ -1,12 +1,12 @@
 <?php
+
 /*
 Template Name: Archive template
 */
-?>
 
-<?php get_header(); ?>
+get_header(); ?>
 
-<div class="wrapper section medium-padding">						
+<div class="wrapper section medium-padding" id="site-content">
 
 	<div class="section-inner">
 
@@ -16,11 +16,11 @@ Template Name: Archive template
 			
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 					
 					<div class="featured-media">
 					
-						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+						<a href="<?php the_permalink(); ?>" rel="bookmark">
 						
 							<?php 
 							
@@ -52,7 +52,10 @@ Template Name: Archive template
 				   				        			        		                
 					<div class="post-content">
 								                                        
-						<?php the_content(); ?>
+						<?php 
+						the_content(); 
+						wp_link_pages();
+						?>
 						
 						<div class="archive-box">
 					
@@ -68,9 +71,9 @@ Template Name: Archive template
 										'posts_per_page'	=> 30,
 									) );
 
-						            foreach( $archive_30 as $recent_post ) : ?>
+						            foreach ( $archive_30 as $recent_post ) : ?>
 						                <li>
-						                	<a href="<?php echo get_the_permalink( $recent_post->ID ); ?>">
+						                	<a href="<?php the_permalink( $recent_post->ID ); ?>">
 						                		<?php echo get_the_title( $recent_post->ID ); ?> 
 						                		<span>(<?php echo get_the_time( get_option( 'date_format' ), $recent_post->ID ); ?>)</span>
 						                	</a>
@@ -78,25 +81,29 @@ Template Name: Archive template
 						            <?php endforeach; ?>
 					            </ul>
 					            
-					            <h3><?php _e( 'Archives by Categories', 'baskerville' ) ?></h3>
+					            <h3><?php _e( 'Archives by Categories', 'baskerville' ); ?></h3>
 					            
 					            <ul>
 					                <?php wp_list_categories( 'title_li=' ); ?>
 					            </ul>
+
+								<?php
+
+								$tags = get_tags();
+
+								if ( $tags ) : ?>
 					            
-					            <h3><?php _e( 'Archives by Tags', 'baskerville' ); ?></h3>
-					            
-					            <ul>
-					                <?php $tags = get_tags();
-					                
-					                if ( $tags ) {
-					                    foreach ( $tags as $tag ) {
-					                 	   echo '<li><a href="' . get_tag_link( $tag->term_id ) . '" title="' . sprintf( __( "View all posts in %s", 'baskerville' ), $tag->name ) . '"' . '>' . $tag->name.'</a></li> ';
-					                    }
-					                }
-					                
-					                wp_reset_query();?>
-					            </ul>
+									<h3><?php _e( 'Archives by Tags', 'baskerville' ); ?></h3>
+									
+									<ul>
+										<?php 
+										foreach ( $tags as $tag ) {
+											echo '<li><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . $tag->name . '</a></li> ';
+										}
+										?>
+									</ul>
+
+								<?php endif; ?>
 				            
 				            </div><!-- .archive-col -->
 				            
@@ -133,9 +140,7 @@ Template Name: Archive template
 			            </div><!-- .archive-box -->
 															            			                        
 					</div><!-- .post-content -->
-					
-					<?php wp_reset_query(); ?>
-											
+																
 					<div class="clear"></div>
 			
 					<?php comments_template( '', true ); ?>

@@ -1,23 +1,48 @@
 <?php get_header(); ?>
 
-<div class="wrapper section medium-padding">
+<div class="wrapper section medium-padding" id="site-content">
 
 	<?php
-	$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-	$total_post_count = wp_count_posts();
-	$published_post_count = $total_post_count->publish;
-	$total_pages = ceil( $published_post_count / $posts_per_page );
+
+	global $wp_query;
+	global $paged;
+
+	$archive_title_prefix = '';
+	$archive_title = '';
+	$archive_description = '';
 	
-	if ( 1 < $paged ) : ?>
-	
+	if ( is_home() && $paged ) {
+		$archive_title_prefix = sprintf( __( 'Page %1$s of %2$s', 'baskerville' ), $paged, $wp_query->max_num_pages );
+	} elseif ( is_search() ) {
+		$archive_title_prefix = __( 'Search results', 'baskerville' );
+		$archive_title = '&ldquo;' . get_search_query() . '&rdquo;';
+	} elseif ( ! is_home() ) {
+		$archive_title = get_the_archive_title();
+		$archive_title_prefix = baskerville_get_archive_title_prefix();
+		$archive_description = get_the_archive_description();
+	}
+
+	if ( $archive_title_prefix || $archive_title || $archive_description ) : ?>
+
 		<div class="page-title section-inner">
-		
-			<h5><?php printf( __( 'Page %1$s of %2$s', 'baskerville' ), $paged, $wp_query->max_num_pages ); ?></h5>
+
+			<?php if ( $archive_title_prefix || $archive_title ) : ?>
+				<h1>
+					<?php if ( $archive_title_prefix ) : ?>
+						<span class="top"><?php echo $archive_title_prefix; ?></span>
+					<?php endif; ?>
+					<?php if ( $archive_title ) : ?>
+						<span class="bottom"><?php echo $archive_title; ?></span>
+					<?php endif; ?>
+				</h1>
+			<?php endif; ?>
+
+			<?php if ( $archive_description ) : ?>
+				<div class="tag-archive-meta"><?php echo wpautop( $archive_description ); ?></div>
+			<?php endif; ?>
 			
-		</div>
-		
-		<div class="clear"></div>
-	
+		</div><!-- .page-title -->
+
 	<?php endif; ?>
 
 	<div class="content section-inner">
@@ -40,6 +65,20 @@
 		    			        		            
 		        <?php endwhile; ?>
 	        	                    
+			<?php elseif ( is_search() ) : ?>
+				
+				<div class="section-inner">
+			
+					<div class="post-content">
+					
+						<p><?php _e( 'No results. Try again, would you kindly?', 'baskerville' ); ?></p>
+											
+					</div><!-- .post-content -->
+				
+				</div><!-- .section-inner -->
+				
+				<div class="clear"></div>
+							
 			<?php endif; ?>
 			
 		</div><!-- .posts -->

@@ -1,12 +1,12 @@
 <?php
+
 /*
 Template Name: Full width template
 */
-?>
 
-<?php get_header(); ?>
+get_header(); ?>
 
-<div class="wrapper section medium-padding">
+<div class="wrapper section medium-padding" id="site-content">
 										
 	<div class="section-inner">
 	
@@ -22,11 +22,11 @@ Template Name: Full width template
 					    				    
 				    </div><!-- .post-header -->
 				
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 						
 						<div class="featured-media">
 						
-							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">
+							<a href="<?php the_permalink(); ?>" rel="bookmark">
 							
 								<?php 
 								
@@ -52,7 +52,10 @@ Template Name: Full width template
 				   				        			        		                
 					<div class="post-content">
 
-						<?php the_content(); ?>
+						<?php 
+						the_content(); 
+						wp_link_pages();
+						?>
 						
 					</div><!-- .post-content -->
 					

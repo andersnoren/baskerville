@@ -38,7 +38,8 @@ class baskerville_dribbble_widget extends WP_Widget {
 			
 				<div class="dribbble-container">
 						
-					<?php foreach ( $items as $item ):
+					<?php foreach ( $items as $item ) :
+
 						$title = $item->get_title();
 						$link = $item->get_permalink();
 						$description = $item->get_description();
@@ -46,11 +47,11 @@ class baskerville_dribbble_widget extends WP_Widget {
 						preg_match("/src=\"(http.*(jpg|jpeg|gif|png))/", $description, $image_url);
 						$image = $image_url[1]; ?>
 																												
-							<a href="<?php echo $link; ?>" title="<?php echo $title;?>" class="dribbble-shot"><img src="<?php echo $image; ?>" alt="<?php echo $title;?>"/></a> 
+							<a href="<?php echo esc_url( $link ); ?>" class="dribbble-shot"><img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $title ); ?>"/></a>
 																																			 	
 					<?php endforeach; ?>
 					
-					<p class="widgetmore"><a href="http://www.dribbble.com/<?php echo $dribbble_user; ?>"><?php printf( __('Follow %s on Dribbble','baskerville') . ' &raquo;', $dribbble_username); ?></a></p>
+					<p class="widgetmore"><a href="http://www.dribbble.com/<?php echo esc_attr( $dribbble_user ); ?>"><?php printf( __( 'Follow %s on Dribbble', 'baskerville' ) . ' &raquo;', $dribbble_username ); ?></a></p>
 				
 				</div>
 							

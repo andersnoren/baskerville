@@ -16,17 +16,17 @@ foreach ( $all_users as $user_obj ) {
 		$users[] = $user_obj; // ...add the user to the array of users that is going to be displayed
 			
 	}
-} ?>
+}
 
-<?php get_header(); ?>
+get_header(); ?>
 
-<div class="wrapper section medium-padding">						
+<div class="wrapper section medium-padding" id="site-content">						
 
 	<div class="section-inner">
 	
 		<div class="content fleft">
 					
-			<div <?php post_class('single post'); ?>>
+			<div <?php post_class( 'single post' ); ?>>
 			
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 																		
@@ -38,7 +38,10 @@ foreach ( $all_users as $user_obj ) {
 				   				        			        		                
 					<div class="post-content">
 
-						<?php the_content(); ?>
+						<?php 
+						the_content(); 
+						wp_link_pages();
+						?>
 
 					</div><!-- .post-content -->
 					
@@ -48,7 +51,7 @@ foreach ( $all_users as $user_obj ) {
 						
 						$i = 0;
 						
-						foreach( $users as $user ) {
+						foreach ( $users as $user ) :
 						
 							if ( $i % 2 == 0 ) {
 								echo $i > 0 ? "<div class='clear'></div></div>" : ""; // close div if it's not the first
@@ -58,13 +61,13 @@ foreach ( $all_users as $user_obj ) {
 														
 							<div class="one-half author-info">
 							
-								<a href="<?php echo get_author_posts_url( $user->ID ); ?>" class="author-avatar"><?php echo get_avatar( $user->user_email, '256' ); ?></a>
+								<a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>" class="author-avatar"><?php echo get_avatar( $user->user_email, '256' ); ?></a>
 							
-								<h4><a href="<?php echo get_author_posts_url( $user->ID ); ?>"><?php echo $user->display_name; ?></a></h4>
+								<h4><a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"><?php echo $user->display_name; ?></a></h4>
 								
 								<h5>
 								
-									<a href="<?php echo get_author_posts_url( $user->ID ); ?>">
+									<a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>">
 
 										<?php 
 										$user_posts_count = count_user_posts( $user->ID );
@@ -76,9 +79,7 @@ foreach ( $all_users as $user_obj ) {
 								</h5>
 								
 								<div class="author-description">
-								
 									<?php echo wpautop( get_user_meta( $user->ID, 'description', true ) ); ?>
-									
 								</div>
 			
 								<div class="author-links">
@@ -87,16 +88,16 @@ foreach ( $all_users as $user_obj ) {
 
 									$show_mail = get_the_author_meta( 'showemail' );
 																	
-									if ( ! empty( $author_mail ) && ( $show_mail == "yes" ) ) : ?>
-										<a class="author-link-mail" href="mailto:<?php echo $user->user_email; ?>"><?php _e( 'E-mail', 'baskerville' ); ?></a>
+									if ( ! empty( $author_mail ) && $show_mail == "yes" ) : ?>
+										<a class="author-link-mail" href="mailto:<?php echo esc_attr( $user->user_email ); ?>"><?php _e( 'E-mail', 'baskerville' ); ?></a>
 									<?php endif; ?>
 									
-									<?php if ( ! empty($user->user_url) ) : ?>
-										<a class="author-link-website" href="<?php echo $user->user_url; ?>"><?php _e( 'Website', 'baskerville' ); ?></a>
+									<?php if ( ! empty( $user->user_url ) ) : ?>
+										<a class="author-link-website" href="<?php echo esc_url( $user->user_url ); ?>"><?php _e( 'Website', 'baskerville' ); ?></a>
 									<?php endif; ?>
 
-									<?php if ( ! empty($user->twitter) ) : ?>
-										<a class="author-link-twitter" href="http://www.twitter.com/<?php echo $user->twitter; ?>"><?php _e( 'Twitter', 'baskerville' ); ?></a>
+									<?php if ( ! empty( $user->twitter ) ) : ?>
+										<a class="author-link-twitter" href="http://www.twitter.com/<?php echo esc_attr( $user->twitter ); ?>"><?php _e( 'Twitter', 'baskerville' ); ?></a>
 									<?php endif; ?>
 									
 								</div><!-- .author-links -->
@@ -105,7 +106,7 @@ foreach ( $all_users as $user_obj ) {
 							
 							<?php $i++; ?>
 															
-						<?php } ?>
+						<?php endforeach; ?>
 						
 						<div class="clear"></div>
 																		

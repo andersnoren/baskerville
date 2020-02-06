@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="wrapper section medium-padding">
+<div class="wrapper section medium-padding" id="site-content">
 										
 	<div class="section-inner">
 	
@@ -16,11 +16,11 @@
 					    				    
 				    </div><!-- .post-header -->
 				
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 						
 						<div class="featured-media">
 						
-							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+							<a href="<?php the_permalink(); ?>" rel="bookmark">
 							
 								<?php 
 								
@@ -46,7 +46,10 @@
 				   				        			        		                
 					<div class="post-content">
 								                                        
-						<?php the_content(); ?>
+						<?php 
+						the_content();
+						wp_link_pages();
+						?>
 						
 						<div class="clear"></div>
 															            			                        

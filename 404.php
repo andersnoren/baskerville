@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="wrapper section medium-padding">
+<div class="wrapper section medium-padding" id="site-content">
 
 	<div class="section-inner">
 

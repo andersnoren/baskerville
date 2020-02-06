@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="wrapper section medium-padding">
+<div class="wrapper section medium-padding" id="site-content">
 										
 	<div class="section-inner">
 	
@@ -16,7 +16,7 @@
 				
 					if ( $format == 'quote' || $format == 'link' || $format == 'audio' || $format == 'status' || $format == 'chat' ) : ?>
 					
-						<?php if ( has_post_thumbnail() ) : ?>
+						<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 					
 							<div class="featured-media">
 							
@@ -46,7 +46,7 @@
 
 						<?php if ( get_the_title() ) : ?>
 						
-						    <h1 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+						    <h1 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 						<?php endif; ?>
 					    
@@ -87,7 +87,7 @@
 
 						</div>
 						
-					<?php elseif ( $format == 'gallery' ) : ?> 
+					<?php elseif ( $format == 'gallery' && ! post_password_required() ) : ?> 
 					
 						<div class="featured-media">
 
@@ -95,9 +95,9 @@
 											
 						</div><!-- .featured-media -->
 						
-					<?php elseif ( $format == 'video' ) : ?>
+					<?php elseif ( $format == 'video' && ! post_password_required() ) : ?>
 					
-						<?php if ( $pos = strpos( $post->post_content, '<!--more-->' ) ) : ?>
+						<?php if ( strpos( $post->post_content, '<!--more-->' ) ) : ?>
 						
 							<div class="featured-media">
 							
@@ -120,7 +120,7 @@
 						
 						<?php endif; ?>
 				
-					<?php elseif ( has_post_thumbnail() ) : ?>
+					<?php elseif ( has_post_thumbnail() && ! post_password_required() ) : ?>
 					
 						<div class="featured-media">
 						
@@ -147,7 +147,7 @@
 					<div class="post-content">
 						
 						<?php 
-						if ( $format == 'link' || $format == 'quote' || $format == 'video' ) { 
+						if ( isset( $content_parts ) && $content_parts && ( $format == 'link' || $format == 'quote' || $format == 'video' ) ) { 
 							$content = $content_parts['extended'];
 							$content = apply_filters( 'the_content', $content );
 							echo $content;
@@ -175,38 +175,36 @@
 									echo wpautop( get_the_author_meta( 'description' ) );
 								}
 
-								$curauth = isset( $_GET['author_name'] ) ? get_userdatabylogin( $author_name ) : get_userdata( intval( $author ) );
 								?>
 								
 								<div class="author-links">
 									
-									<a class="author-link-posts" title="<?php _e( 'Author archive', 'baskerville' ); ?>" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php _e( 'Author archive', 'baskerville' ); ?></a>
+									<a class="author-link-posts" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php _e( 'Author archive', 'baskerville' ); ?></a>
 									
-									<?php $author_url = get_the_author_meta( 'user_url' ); 
-								
-									$author_url = preg_replace( '#^https?://#', '', rtrim( $author_url, '/' ) );
-																	
+									<?php 
+									
+									$author_url = get_the_author_meta( 'user_url' ); 
+																									
 									if ( ! empty( $author_url ) ) : ?>
 									
-										<a class="author-link-website" title="<?php _e( 'Author website', 'baskerville' ); ?>" href="<?php the_author_meta( 'user_url' ); ?>"><?php _e( 'Author website', 'baskerville' ); ?></a>
+										<a class="author-link-website" href="<?php echo esc_url( $author_url ); ?>"><?php _e( 'Author website', 'baskerville' ); ?></a>
 										
 									<?php endif;
 									
 									$author_mail = get_the_author_meta( 'email' ); 
-									
 									$show_mail = get_the_author_meta( 'showemail' );
 																	
-									if ( ! empty( $author_mail ) && ( $show_mail == "yes" ) ) : ?>
+									if ( $author_mail && $show_mail == "yes" ) : ?>
 									
-										<a class="author-link-mail" title="<?php echo $author_mail; ?>" href="mailto:<?php echo $author_mail ?>"><?php echo $author_mail; ?></a>
+										<a class="author-link-mail" href="mailto:<?php echo esc_attr( $author_mail ); ?>"><?php echo $author_mail; ?></a>
 										
 									<?php endif;
 									
 									$author_twitter = get_the_author_meta( 'twitter' ); 
 																	
-									if ( ! empty( $author_twitter ) ) : ?>
+									if ( $author_twitter ) : ?>
 									
-										<a class="author-link-twitter" title="<?php printf( __( '@%s on Twitter', 'baskerville' ), $author_twitter ); ?>" href="http://www.twitter.com/<?php echo $author_twitter; ?>"><?php printf( __( '@%s on Twitter', 'baskerville' ), $author_twitter ); ?></a>
+										<a class="author-link-twitter" href="http://www.twitter.com/<?php echo esc_attr( $author_twitter ); ?>"><?php printf( __( '@%s on Twitter', 'baskerville' ), $author_twitter ); ?></a>
 										
 									<?php endif; ?>
 									
@@ -235,25 +233,33 @@
 							<div class="post-nav">
 							
 								<?php
-								$prev_post = get_previous_post();
-								if ( ! empty( $prev_post )): ?>
-								
-									<a class="post-nav-prev" title="<?php printf( __( 'Previous post: %s', 'baskerville' ), get_the_title( $prev_post->ID ) ); ?>" href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php _e( 'Previous post', 'baskerville' ); ?></a>
-							
-								<?php endif; 
 
+								$prev_post = get_previous_post();
 								$next_post = get_next_post();
-								if ( ! empty( $next_post ) ) : ?>
-									
-									<a class="post-nav-next" title="<?php printf( __( 'Next post: %s', 'baskerville' ), get_the_title( $next_post->ID ) ); ?>" href="<?php echo get_permalink( $next_post->ID ); ?>"><?php _e( 'Next post', 'baskerville' ); ?></a>
-							
-								<?php endif; ?>
+
+								if ( $prev_post ) :
+									?>
 								
-								<?php edit_post_link( __( 'Edit post', 'baskerville' ) ); ?>
+									<a class="post-nav-prev" href="<?php the_permalink( $prev_post->ID ); ?>"><?php _e( 'Previous post', 'baskerville' ); ?></a>
+							
+									<?php 
+								endif; 
+
+								if ( $next_post ) :
+									?>
+									
+									<a class="post-nav-next" href="<?php the_permalink( $next_post->ID ); ?>"><?php _e( 'Next post', 'baskerville' ); ?></a>
+							
+									<?php 
+								endif; 
+								
+								edit_post_link( __( 'Edit post', 'baskerville' ) ); 
+								
+								?>
 									
 								<div class="clear"></div>
 							
-							</div>
+							</div><!-- .post-nav -->
 						
 						</div><!-- .post-meta -->
 						

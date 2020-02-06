@@ -1,15 +1,13 @@
 <?php if ( is_sticky() ) echo '<span class="sticky-post">' . __( 'Sticky post', 'baskerville' ) . '</span>'; ?>
 
-<?php if ( has_post_thumbnail() ) : ?>
+<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 
 	<div class="featured-media">
 	
 		<?php if ( is_sticky() ) echo '<span class="sticky-post">' . __( 'Sticky post', 'baskerville' ) . '</span>'; ?>
 	
-		<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-		
-			<?php the_post_thumbnail('post-thumbnail'); ?>
-			
+		<a href="<?php the_permalink(); ?>" rel="bookmark">
+			<?php the_post_thumbnail(); ?>
 		</a>
 				
 	</div><!-- .featured-media -->
@@ -22,7 +20,7 @@
 
 	$image_caption = '';
 
-	if ( has_post_thumbnail() ) {
+	if ( has_post_thumbnail() && ! post_password_required() ) {
 		$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
 	}
 	
@@ -37,5 +35,3 @@
 </div><!-- .post-excerpt -->
 									                                    	    
 <?php baskerville_meta(); ?>
-            
-<div class="clear"></div>
