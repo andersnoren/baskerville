@@ -11,21 +11,17 @@
 <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 
 	<div class="featured-media">
-	
 		<a href="<?php the_permalink(); ?>" rel="bookmark">
-		
 			<?php the_post_thumbnail(); ?>
-			
 		</a>
-				
 	</div><!-- .featured-media -->
-		
+
 <?php endif; ?>
-									                                    	    
-<div class="post-excerpt">
 
-	<?php the_excerpt( 100 ); ?>
-
-</div><!-- .post-excerpt -->
+<?php if ( get_the_content() ) : ?>
+	<div class="post-excerpt">
+		<?php the_excerpt( 100 ); ?>
+	</div><!-- .post-excerpt -->
+<?php endif; ?>
 
 <?php baskerville_meta(); ?>

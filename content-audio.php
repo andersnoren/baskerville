@@ -9,13 +9,9 @@
 </div><!-- .post-header -->
 
 <?php if ( get_the_content() ) : ?>
-									                                    	    
 	<div class="post-excerpt">
-
 		<?php the_excerpt( '100' ); ?>
-	
 	</div><!-- .post-excerpt -->
-
 <?php endif; ?>
 									                                    	    
 <?php baskerville_meta(); ?>

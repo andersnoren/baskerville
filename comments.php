@@ -76,7 +76,7 @@ if ( have_comments() ) : ?>
 	
 <?php endif; ?>
 
-<?php if ( ! comments_open() && !is_page() ) : ?>
+<?php if ( ! comments_open() && ! is_page() ) : ?>
 
 	<p class="nocomments"><?php _e( 'Comments are closed.', 'baskerville' ); ?></p>
 	

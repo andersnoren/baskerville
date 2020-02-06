@@ -5,11 +5,11 @@
 	<div class="featured-media">
 	
 		<?php if ( is_sticky() ) echo '<span class="sticky-post">' . __( 'Sticky post', 'baskerville' ) . '</span>'; ?>
-	
+
 		<a href="<?php the_permalink(); ?>" rel="bookmark">
 			<?php the_post_thumbnail(); ?>
 		</a>
-				
+		
 	</div><!-- .featured-media -->
 		
 <?php endif; ?>

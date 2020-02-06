@@ -9,23 +9,15 @@
 </div><!-- .post-header -->
 
 <?php if ( ! post_password_required() ) : ?>
-
 	<div class="featured-media">
-
 		<?php baskerville_flexslider( 'post-image' ); ?>
-						
 	</div><!-- .featured-media -->
-
 <?php endif; ?>
 
 <?php if ( get_the_content() ) : ?>
-									                                    	    
 	<div class="post-excerpt">
-
 		<?php the_excerpt( '100' ); ?>
-	
 	</div><!-- .post-excerpt -->
-
 <?php endif; ?>
 									                                    	    
 <?php baskerville_meta(); ?>
