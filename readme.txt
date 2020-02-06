@@ -143,6 +143,7 @@ Version 2.0.0 (2020-02-06)
 - Made sure all elements has outline on focus.
 - Added display of main menu sub menus on focus.
 - Made edit icon @2x.
+- Added sticky icon output to content-status.php.
 
 Version 1.35 (2019-04-07)
 -------------------------
