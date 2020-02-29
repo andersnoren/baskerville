@@ -114,6 +114,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.0.2 (2020-02-29)
+-------------------------
+- Added an `! is_admin()` check to the stylesheet enqueues.
+
 Version 2.0.1 (2020-02-06)
 -------------------------
 - Fixed incorrect text domain.

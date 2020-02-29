@@ -86,8 +86,9 @@ endif;
 if ( ! function_exists( 'baskerville_load_style' ) ) :
 	function baskerville_load_style() {
 
-		$dependencies = array();
+		if ( is_admin() ) return;
 
+		$dependencies = array();
 		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
 		/**
