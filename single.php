@@ -189,23 +189,6 @@
 									
 										<a class="author-link-website" href="<?php echo esc_url( $author_url ); ?>"><?php _e( 'Author website', 'baskerville' ); ?></a>
 										
-									<?php endif;
-									
-									$author_mail = get_the_author_meta( 'email' ); 
-									$show_mail = get_the_author_meta( 'showemail' );
-																	
-									if ( $author_mail && $show_mail == "yes" ) : ?>
-									
-										<a class="author-link-mail" href="mailto:<?php echo esc_attr( $author_mail ); ?>"><?php echo $author_mail; ?></a>
-										
-									<?php endif;
-									
-									$author_twitter = get_the_author_meta( 'twitter' ); 
-																	
-									if ( $author_twitter ) : ?>
-									
-										<a class="author-link-twitter" href="http://www.twitter.com/<?php echo esc_attr( $author_twitter ); ?>"><?php printf( __( '@%s on Twitter', 'baskerville' ), $author_twitter ); ?></a>
-										
 									<?php endif; ?>
 									
 								</div><!-- .author-links -->
@@ -223,9 +206,7 @@
 							<p class="post-categories"><?php the_category( ', ' ); ?></p>
 							
 							<?php if ( has_tag() ) : ?>
-							
 								<p class="post-tags"><?php the_tags( '', ', ' ); ?></p>
-							
 							<?php endif; ?>
 							
 							<div class="clear"></div>

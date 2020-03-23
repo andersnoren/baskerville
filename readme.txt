@@ -1,7 +1,7 @@
 === Baskerville ===
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
-Requires at least: 4.4
+Requires at least: 4.5.0
 Tested up to: 5.3.2
 Stable tag: trunk
 License: GPLv2 or later
@@ -113,6 +113,17 @@ Source: http://www.unsplash.com
 
 
 == Changelog ==
+
+Version 2.1.0 (2020-03-23)
+-------------------------
+- Removed the Twitter profile field and the option to show the author email to posts (kudos to @poena). These changes were required for Baskerville to remain on the WordPress.org theme directory. For more information, see this blog post: https://andersnoren.se/changes-to-baskerville/.
+- Added support for the core custom_logo setting, and updated the old baskerville_logo setting to only be displayed if you already have a baskerville_logo image set (more kudos to @poena).
+- Bumped the "Requires at least" tag to 4.5.0, since Baskerville is now using custom_logo.
+- Fixed the search field focus on toggle click (thanks to @germundal).
+- Removed the admin CSS for setting a max width on the post thumbnail image, since that has been fixed in Core for many years now.
+- Updated the resolution of the screenshot to 1200x900px, and changed the file format to .jpg to save ~100 kb in file size. Same images as in the previous screenshot, same licenses.
+- Improved the Masonry call in global.js.
+- Code formatting cleanup in functions.php.
 
 Version 2.0.2 (2020-02-29)
 -------------------------

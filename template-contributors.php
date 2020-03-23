@@ -83,21 +83,9 @@ get_header(); ?>
 								</div>
 			
 								<div class="author-links">
-
-									<?php
-
-									$show_mail = get_the_author_meta( 'showemail' );
-																	
-									if ( ! empty( $author_mail ) && $show_mail == "yes" ) : ?>
-										<a class="author-link-mail" href="mailto:<?php echo esc_attr( $user->user_email ); ?>"><?php _e( 'E-mail', 'baskerville' ); ?></a>
-									<?php endif; ?>
 									
 									<?php if ( ! empty( $user->user_url ) ) : ?>
 										<a class="author-link-website" href="<?php echo esc_url( $user->user_url ); ?>"><?php _e( 'Website', 'baskerville' ); ?></a>
-									<?php endif; ?>
-
-									<?php if ( ! empty( $user->twitter ) ) : ?>
-										<a class="author-link-twitter" href="http://www.twitter.com/<?php echo esc_attr( $user->twitter ); ?>"><?php _e( 'Twitter', 'baskerville' ); ?></a>
 									<?php endif; ?>
 									
 								</div><!-- .author-links -->

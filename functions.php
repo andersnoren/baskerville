@@ -15,21 +15,35 @@ if ( ! function_exists( 'baskerville_setup' ) ) {
 			
 		// Post thumbnails
 		add_theme_support( 'post-thumbnails' );
+
 		set_post_thumbnail_size( 600, 9999 );
 		add_image_size( 'post-image', 945, 9999 );
 		
 		// Post formats
 		add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
+		// Custom background
+		add_theme_support( 'custom-background', array(
+			'default-color'	=> '#f1f1f1'
+		) );
+
 		// Custom header
-		$args = array(
+		add_theme_support( 'custom-header', array(
 			'width'         => 1440,
 			'height'        => 221,
 			'default-image' => get_template_directory_uri() . '/images/header.jpg',
 			'uploads'       => true,
 			'header-text'  	=> false
-		);
-		add_theme_support( 'custom-header', $args );
+		) );
+
+		// Custom logo
+		add_theme_support( 'custom-logo', array(
+			'height'      => 240,
+			'width'       => 320,
+			'flex-height' => true,
+			'flex-width'  => true,
+			'header-text' => array( 'site-title', 'site-description' ),
+		) );
 		
 		// Add support for title_tag
 		add_theme_support( 'title-tag' );
@@ -37,12 +51,6 @@ if ( ! function_exists( 'baskerville_setup' ) ) {
 		// Set content width
 		global $content_width;
 		if ( ! isset( $content_width ) ) $content_width = 676;
-			
-		// Add support for custom background
-		$args = array(
-			'default-color'	=> '#f1f1f1'
-		);
-		add_theme_support( "custom-background", $args );
 
 		// Add nav menu
 		register_nav_menu( 'primary', __( 'Primary Menu', 'baskerville' ) );
@@ -120,7 +128,6 @@ endif;
 
 
 if ( ! function_exists( 'baskerville_add_editor_styles' ) ) {
-
 	function baskerville_add_editor_styles() {
 
 		add_editor_style( 'baskerville-editor-style.css' );
@@ -139,7 +146,6 @@ if ( ! function_exists( 'baskerville_add_editor_styles' ) ) {
 
 	}
 	add_action( 'init', 'baskerville_add_editor_styles' );
-
 }
 
 
@@ -148,8 +154,7 @@ if ( ! function_exists( 'baskerville_add_editor_styles' ) ) {
    --------------------------------------------------------------------------------------------- */
 
 
-if ( ! function_exists( 'baskerville_sidebar_registration' ) ) {
-
+if ( ! function_exists( 'baskerville_sidebar_registration' ) ) :
 	function baskerville_sidebar_registration() {
 
 		register_sidebar( array(
@@ -194,8 +199,7 @@ if ( ! function_exists( 'baskerville_sidebar_registration' ) ) {
 
 	}
 	add_action( 'widgets_init', 'baskerville_sidebar_registration' ); 
-
-}
+endif;
 	
 
 /* ---------------------------------------------------------------------------------------------
@@ -213,21 +217,21 @@ require_once( get_template_directory() . '/widgets/flickr-widget.php' );
 
 
 if ( ! function_exists( 'baskerville_pagination_classes_next' ) ) {
-
 	function baskerville_pagination_classes_next() {
+
 		return 'class="post-nav-older fleft"';
+
 	}
 	add_filter( 'next_posts_link_attributes', 'baskerville_pagination_classes_next' );
-
 }
 
 if ( ! function_exists( 'baskerville_pagination_classes_prev' ) ) {
-
 	function baskerville_pagination_classes_prev() {
+
 		return 'class="post-nav-newer fright"';
+
 	}
 	add_filter( 'previous_posts_link_attributes', 'baskerville_pagination_classes_prev' );
-
 }
 
 
@@ -237,6 +241,7 @@ if ( ! function_exists( 'baskerville_pagination_classes_prev' ) ) {
 
 
 class baskerville_nav_walker extends Walker_Nav_Menu {
+
     function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
         $id_field = $this->db_fields['id'];
         if ( ! empty( $children_elements[$element->$id_field] ) ) {
@@ -244,6 +249,7 @@ class baskerville_nav_walker extends Walker_Nav_Menu {
         }
         Walker_Nav_Menu::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }
+
 }
 
 
@@ -253,7 +259,6 @@ class baskerville_nav_walker extends Walker_Nav_Menu {
 
 
 if ( ! function_exists( 'baskerville_body_classes' ) ) {
-
 	function baskerville_body_classes( $classes ) {
 		
 		// If has post thumbnail
@@ -273,7 +278,6 @@ if ( ! function_exists( 'baskerville_body_classes' ) ) {
 
 	}
 	add_action( 'body_class', 'baskerville_body_classes' );
-
 }
 
 
@@ -283,12 +287,12 @@ if ( ! function_exists( 'baskerville_body_classes' ) ) {
 
 
 if ( ! function_exists( 'baskerville_custom_excerpt_length' ) ) {
-
 	function baskerville_custom_excerpt_length( $length ) {
+
 		return 40;
+
 	}
 	add_filter( 'excerpt_length', 'baskerville_custom_excerpt_length', 999 );
-
 }
 
 
@@ -298,19 +302,18 @@ if ( ! function_exists( 'baskerville_custom_excerpt_length' ) ) {
 
 
 if ( ! function_exists( 'baskerville_new_excerpt_more' ) ) {
-
 	function baskerville_new_excerpt_more( $more ) {
+
 		return '... <a class="more-link" href="'. get_permalink( get_the_ID() ) . '">' . __( 'Continue Reading', 'baskerville' ) . ' &rarr;</a>';
+
 	}
 	add_filter( 'excerpt_more', 'baskerville_new_excerpt_more' );
-
 }
 
 
 /* ---------------------------------------------------------------------------------------------
    BASKERVILLE META FUNCTION
    --------------------------------------------------------------------------------------------- */
-
 
 if ( ! function_exists( 'baskerville_meta' ) ) :
 	function baskerville_meta() {
@@ -348,8 +351,8 @@ endif;
    --------------------------------------------------------------------------------------------- */
 
 if ( ! function_exists( 'baskerville_remove_archive_title_prefix' ) ) :
-
 	function baskerville_remove_archive_title_prefix( $title ) {
+
 		if ( is_category() ) {
 			$title = single_cat_title( '', false );
 		} elseif ( is_tag() ) {
@@ -391,10 +394,11 @@ if ( ! function_exists( 'baskerville_remove_archive_title_prefix' ) ) :
 		} else {
 			$title = __( 'Archives', 'baskerville' );
 		} // End if().
+
 		return $title;
+
 	}
 	add_filter( 'get_the_archive_title', 'baskerville_remove_archive_title_prefix' );
-
 endif;
 
 
@@ -403,8 +407,8 @@ endif;
    --------------------------------------------------------------------------------------------- */
 
 if ( ! function_exists( 'baskerville_get_archive_title_prefix' ) ) :
-
 	function baskerville_get_archive_title_prefix() {
+
 		if ( is_category() ) {
 			$title_prefix = __( 'Category', 'baskerville' );
 		} elseif ( is_tag() ) {
@@ -426,30 +430,9 @@ if ( ! function_exists( 'baskerville_get_archive_title_prefix' ) ) :
 			$title_prefix = __( 'Archives', 'baskerville' );
 		}
 		return $title_prefix;
-	}
 
+	}
 endif;
-
-
-/* ---------------------------------------------------------------------------------------------
-   ADMIN CSS
-   --------------------------------------------------------------------------------------------- */
-
-
-if ( ! function_exists( 'baskerville_admin_css' ) ) {
-
-	function baskerville_admin_css() { ?>
-		<style type="text/css">   
-			#postimagediv #set-post-thumbnail img {
-				max-width: 100%;
-				height: auto;
-			}
-		</style>
-		<?php 
-	}
-	add_action( 'admin_head', 'baskerville_admin_css' );
-
-}
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -458,7 +441,6 @@ if ( ! function_exists( 'baskerville_admin_css' ) ) {
 
 
 if ( ! function_exists( 'baskerville_flexslider' ) ) {
-
 	function baskerville_flexslider( $size = 'post-thumbnail' ) {
 
 		$attachment_parent = is_page() ? $post->ID : get_the_ID();
@@ -503,8 +485,8 @@ if ( ! function_exists( 'baskerville_flexslider' ) ) {
 			<?php
 			
 		}
-	}
 
+	}
 }
 
 
@@ -514,8 +496,8 @@ if ( ! function_exists( 'baskerville_flexslider' ) ) {
 
 
 if ( ! function_exists( 'baskerville_comment' ) ) {
-
 	function baskerville_comment( $comment, $args, $depth ) {
+
 		switch ( $comment->comment_type ) :
 			case 'pingback' :
 			case 'trackback' :
@@ -587,75 +569,8 @@ if ( ! function_exists( 'baskerville_comment' ) ) {
 		<?php
 			break;
 		endswitch;
-	}
-}
-
-
-/* ---------------------------------------------------------------------------------------------
-   ADD TWITTER FIELD TO USER PROFILES
-   --------------------------------------------------------------------------------------------- */
-
-
-if ( ! function_exists( 'baskerville_modify_contact_methods' ) ) {
-
-	function baskerville_modify_contact_methods( $profile_fields ) {
-
-		// Add new fields
-		$profile_fields['twitter'] = __( 'Twitter-username (without the @)', 'baskerville' );
-
-		return $profile_fields;
-	}
-	add_filter( 'user_contactmethods', 'baskerville_modify_contact_methods' );
-
-}
-
-
-/* ---------------------------------------------------------------------------------------------
-   ADD OPTION FOR SHOWING OR HIDING EMAIL ADDRESS FOR AUTHORS
-   --------------------------------------------------------------------------------------------- */
-
-/* DISPLAY FIELDS */
-
-if ( ! function_exists( 'baskerville_show_extra_profile_fields' ) ) {
-
-	function baskerville_show_extra_profile_fields( $user ) { ?>
-
-		<h3><?php _e( 'Extra profile information', 'baskerville' ); ?></h3>
-
-		<table class="form-table">
-
-			<tr>
-				<th><label for="showemail"><?php _e( 'Show email', 'baskerville' ); ?></label></th>
-
-				<td>
-					<input type="checkbox" name="showemail" id="showemail" value="yes"<?php if ( esc_attr( get_the_author_meta( "showemail", $user->ID )) == "yes") echo " checked"; ?> />	
-					<span class="description"><?php _e( 'Check if you want to display your email address in single posts and the contributors page template.', 'baskerville' ); ?></span>
-				</td>
-			</tr>
-
-		</table>
-		<?php 
-	}
-	add_action( 'show_user_profile', 'baskerville_show_extra_profile_fields' );
-	add_action( 'edit_user_profile', 'baskerville_show_extra_profile_fields' );
-
-}
-
-/* SAVE FIELDS */
-
-if ( ! function_exists( 'baskerville_save_extra_profile_fields' ) ) {
-
-	function baskerville_save_extra_profile_fields( $user_id ) {
-
-		if ( ! current_user_can( 'edit_user', $user_id ) )
-			return false;
-
-		update_user_meta( $user_id, 'showemail', $_POST['showemail'] );
 
 	}
-	add_action( 'personal_options_update', 'baskerville_save_extra_profile_fields' );
-	add_action( 'edit_user_profile_update', 'baskerville_save_extra_profile_fields' );
-
 }
 
 
@@ -663,63 +578,38 @@ if ( ! function_exists( 'baskerville_save_extra_profile_fields' ) ) {
    BASKERVILLE THEME OPTIONS
    --------------------------------------------------------------------------------------------- */
 
+if ( ! class_exists( 'Baskerville_Customize' ) ) :
+	class Baskerville_Customize {
 
-class baskerville_Customize {
+		public static function register( $wp_customize ) {
 
-   public static function register ( $wp_customize ) {
-   
-      //1. Define a new section (if desired) to the Theme Customizer
-      $wp_customize->add_section( 'baskerville_options', 
-         array(
-            'title' => __( 'Baskerville Options', 'baskerville' ), //Visible title of section
-            'priority' => 35, //Determines what order this appears in
-            'capability' => 'edit_theme_options', //Capability needed to tweak
-            'description' => __('Allows you to customize some settings for Baskerville.', 'baskerville'), //Descriptive tooltip
-         ) 
-      );
-      
-      $wp_customize->add_section( 'baskerville_logo_section' , array(
-		    'title'       => __( 'Logo', 'baskerville' ),
-		    'priority'    => 40,
-		    'description' => 'Upload a logo to replace the default site name and description in the header',
-		) );
-      
-      //2. Register new settings to the WP database...      
-      $wp_customize->add_setting( 'baskerville_logo', 
-      	array( 
-      		'sanitize_callback' => 'esc_url_raw'
-      	) 
-      );
-                  
-      //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-      $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'baskerville_logo', array(
-		    'label'    => __( 'Logo', 'baskerville' ),
-		    'section'  => 'baskerville_logo_section',
-		    'settings' => 'baskerville_logo',
-		) ) );
-      
-      //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
-      $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-   }
-   
-   public static function generate_css( $selector, $style, $mod_name, $prefix='', $postfix='', $echo=true ) {
-      $return = '';
-      $mod = get_theme_mod($mod_name);
-      if ( ! empty( $mod ) ) {
-         $return = sprintf('%s { %s:%s; }',
-            $selector,
-            $style,
-            $prefix.$mod.$postfix
-         );
-         if ( $echo ) echo $return;
-      }
-      return $return;
-    }
-}
+			// Only display the Customizer section for the baskerville_logo setting if it already has a value.
+			// This means that site owners with existing logos can remove them, but new site owners can't add them.
+			// Since v2.1.0, the core custom_logo setting (in the Site Identity Customizer panel) should be used instead.
+			if ( ! get_theme_mod( 'baskerville_logo' ) ) return;
 
-// Setup the Theme Customizer settings and controls...
-add_action( 'customize_register' , array( 'baskerville_Customize' , 'register' ) );
+			// Register the logo section, setting, and control
+			$wp_customize->add_section( 'baskerville_logo_section', array(
+				'title'				=> __( 'Logo', 'baskerville' ),
+				'priority'			=> 40,
+				'description'		=> 'Upload a logo to replace the default site name and description in the header',
+			) );
+
+			$wp_customize->add_setting( 'baskerville_logo', array( 
+				'sanitize_callback'	=> 'esc_url_raw' 
+			) );
+
+			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'baskerville_logo', array(
+				'label'				=> __( 'Logo', 'baskerville' ),
+				'section'			=> 'baskerville_logo_section',
+				'settings'			=> 'baskerville_logo',
+			) ) );
+
+		}
+
+	}
+	add_action( 'customize_register', array( 'Baskerville_Customize', 'register' ) );
+endif;
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -728,7 +618,6 @@ add_action( 'customize_register' , array( 'baskerville_Customize' , 'register' )
 
 
 if ( ! function_exists( 'baskerville_add_gutenberg_features' ) ) :
-
 	function baskerville_add_gutenberg_features() {
 
 		add_theme_support( 'align-wide' );
@@ -799,7 +688,6 @@ if ( ! function_exists( 'baskerville_add_gutenberg_features' ) ) :
 
 	}
 	add_action( 'after_setup_theme', 'baskerville_add_gutenberg_features' );
-
 endif;
 
 
@@ -807,9 +695,7 @@ endif;
    GUTENBERG EDITOR STYLES
    --------------------------------------------------------------------------------------------- */
 
-
 if ( ! function_exists( 'baskerville_block_editor_styles' ) ) :
-
 	function baskerville_block_editor_styles() {
 
 		$dependencies = array();
@@ -834,9 +720,4 @@ if ( ! function_exists( 'baskerville_block_editor_styles' ) ) :
 
 	}
 	add_action( 'enqueue_block_editor_assets', 'baskerville_block_editor_styles', 1 );
-
 endif;
-
-
-
-?>

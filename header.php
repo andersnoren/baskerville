@@ -34,34 +34,39 @@
 					
 			<div class="header-inner section-inner">
 			
-				<?php if ( get_theme_mod( 'baskerville_logo' ) ) : ?>
+				<?php 
+
+				$custom_logo_id 	= get_theme_mod( 'custom_logo' );
+				$legacy_logo_url 	= get_theme_mod( 'baskerville_logo' );
+				$blog_title_elem 	= ( ( is_front_page() || is_home() ) && ! is_page() ) ? 'h1' : 'div';
+				$blog_title_class 	= $custom_logo_id ? 'blog-logo' : 'blog-title';
+
+				$blog_title 		= get_bloginfo( 'title' );
+				$blog_description 	= get_bloginfo( 'description' );
+
+				if ( $custom_logo_id  || $legacy_logo_url ) : 
+
+					$custom_logo_url = $custom_logo_id ? wp_get_attachment_image_url( $custom_logo_id, 'full' ) : $legacy_logo_url;
 				
-					<div class="blog-logo">
-					
-				        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				        	<img src="<?php echo esc_url( get_theme_mod( 'baskerville_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>">
-				        </a>
-			        
-					</div>
-			
-				<?php elseif ( get_bloginfo( 'description' ) || get_bloginfo( 'title' ) ) : ?>
-
-					<?php 
-					
-					$blog_title_elem = ( ( is_front_page() || is_home() ) && ! is_page() ) ? 'h1' : 'div';
-
 					?>
-								
-					<<?php echo $blog_title_elem; ?> class="blog-title">
-						<a href="<?php echo esc_url( home_url() ); ?>" rel="home"><?php echo get_bloginfo( 'title' ); ?></a>
+
+					<<?php echo $blog_title_elem; ?> class="<?php echo esc_attr( $blog_title_class ); ?>">
+						<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src="<?php echo esc_url( $custom_logo_url ); ?>">
+							<span class="screen-reader-text"><?php echo $blog_title; ?></span>
+						</a>
 					</<?php echo $blog_title_elem; ?>>
-					
-					<?php if ( get_bloginfo( 'description' ) ) : ?>
-					
-						<h3 class="blog-description"><?php echo get_bloginfo( 'description' ); ?></h3>
-						
+		
+				<?php elseif ( $blog_description || $blog_title ) : ?>
+
+					<<?php echo $blog_title_elem; ?> class="<?php echo esc_attr( $blog_title_class ); ?>">
+						<a href="<?php echo esc_url( home_url() ); ?>" rel="home"><?php echo $blog_title; ?></a>
+					</<?php echo $blog_title_elem; ?>>
+				
+					<?php if ( $blog_description ) : ?>
+						<h3 class="blog-description"><?php echo $blog_description; ?></h3>
 					<?php endif; ?>
-										
+				
 				<?php endif; ?>
 							
 			</div><!-- .header-inner -->
