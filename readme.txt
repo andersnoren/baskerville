@@ -114,6 +114,11 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.1.1 (2020-03-30)
+-------------------------
+- Updated baskerville_meta() to use the date format specified in the site settings instead of a custom one defined by the theme.
+- Set Firefox font smoothing to grayscale, to better match the appearance of Safari and Chrome on MacOS.
+
 Version 2.1.0 (2020-03-23)
 -------------------------
 - Removed the Twitter profile field and the option to show the author email to posts (kudos to @poena). These changes were required for Baskerville to remain on the WordPress.org theme directory. For more information, see this blog post: https://andersnoren.se/changes-to-baskerville/.

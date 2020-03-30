@@ -322,7 +322,7 @@ if ( ! function_exists( 'baskerville_meta' ) ) :
 
 		<div class="post-meta">
 		
-			<a class="post-date" href="<?php the_permalink(); ?>"><?php the_time( 'Y/m/d' ); ?></a>
+			<a class="post-date" href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a>
 			
 			<?php
 			
