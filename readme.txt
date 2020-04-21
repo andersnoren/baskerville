@@ -114,6 +114,11 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.1.2 (2020-04-21)
+-------------------------
+- Fixed the figcaption element missing caption styles (thanks, @idekogel!).
+- Updated the calendar widget styles to handle the new calendar navigation.
+
 Version 2.1.1 (2020-03-30)
 -------------------------
 - Updated baskerville_meta() to use the date format specified in the site settings instead of a custom one defined by the theme.
