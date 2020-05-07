@@ -9,6 +9,12 @@ jQuery(document).ready(function($) {
 				transitionDuration: 0,
 			} );
 		} );
+
+		setTimeout( function() { $grid.masonry(); }, 500 );
+		setTimeout( function() { $grid.masonry(); }, 1000 );
+		setTimeout( function() { $grid.masonry(); }, 1500 );
+		setTimeout( function() { $grid.masonry(); }, 2000 );
+		setTimeout( function() { $grid.masonry(); }, 2500 );
 	}
 
 	// Toggle mobile-menu

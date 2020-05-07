@@ -1,6 +1,6 @@
-<div class="footer section medium-padding bg-graphite">
+<?php if ( is_active_sidebar( 'footer-a' ) || is_active_sidebar( 'footer-b' ) || is_active_sidebar( 'footer-c' ) ) : ?>
 
-	<?php if ( is_active_sidebar( 'footer-a' ) || is_active_sidebar( 'footer-b' ) || is_active_sidebar( 'footer-c' ) ) : ?>
+	<div class="footer section medium-padding bg-graphite">
 	
 		<div class="section-inner row">
 		
@@ -50,9 +50,9 @@
 		
 		</div><!-- .section-inner -->
 
-	<?php endif; ?>
+	</div><!-- .footer -->
 
-</div><!-- .footer -->
+<?php endif; ?>
 
 <div class="credits section bg-dark small-padding">
 
