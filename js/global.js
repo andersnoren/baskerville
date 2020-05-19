@@ -45,6 +45,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+
 	// Display dropdown menus on focus.
 	$( '.main-menu a' ).on( 'blur focus', function( e ) {
 		$( this ).parents( 'li.menu-item-has-children' ).toggleClass( 'focus' );

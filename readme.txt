@@ -114,6 +114,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.1.4 (2020-05-19)
+-------------------------
+- Fixed potential notices in the widgets included in the theme.
+
 Version 2.1.3 (2020-05-07)
 -------------------------
 - Added a failsafe for the Masonry code misjudging height of video embeds on archive pages.

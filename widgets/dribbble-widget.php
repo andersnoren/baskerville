@@ -72,9 +72,9 @@ class baskerville_dribbble_widget extends WP_Widget {
 	function form($instance) {
 	
 		// Get the options into variables, escaping html characters on the way
-		$widget_title = $instance['widget_title'];
-		$dribbble_username = $instance['dribbble_username'];
-		$dribbble_number = $instance['dribbble_number'];
+		$widget_title = isset( $instance['widget_title'] ) ? $instance['widget_title'] : '';
+		$dribbble_username = isset( $instance['dribbble_username'] ) ? $instance['dribbble_username'] : '';
+		$dribbble_number = isset( $instance['dribbble_number'] ) ? $instance['dribbble_number'] : '';
 		?>
 		
 		<p>
