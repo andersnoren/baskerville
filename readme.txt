@@ -2,7 +2,8 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5.0
-Tested up to: 5.4.1
+Requires PHP: 5.4
+Tested up to: 6.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -114,6 +115,13 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.2 (2022-06-29)
+-------------------------
+- Switched from the Google Fonts CDN to font files included in the theme folder.
+- Bumped "Tested up to" to 6.0.
+- Removed the www prefix from andersnoren.se URLs.
+- Updated folder structure to group assets in the new /assets/ folder.
+
 Version 2.1.4 (2020-05-19)
 -------------------------
 - Fixed potential notices in the widgets included in the theme.
@@ -177,7 +185,7 @@ Version 2.0.0 (2020-02-06)
 - Updated the blog title to only be a h1 element on the front page.
 - Removed imagesloaded from the theme and registered the version included in Core instead.
 - Updated Flexslider to 2.7.2, and included a non-minified version as well as the enqueued, minified one.
-- Added theme version to the enqueues of style.css and js/global.js.
+- Added theme version to the enqueues of style.css and assets/js/global.js.
 - Optimized image files.
 - Added skip link.
 - Made sure all elements has outline on focus.

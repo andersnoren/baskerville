@@ -2,15 +2,17 @@
 
 	Theme Name: Baskerville
     Text Domain: baskerville
-	Version: 2.1.4
-	Description: Baskerville is a beautiful, responsive and retina-ready masonry theme for hoarders. It's the perfect way to showcase your posts, videos, images and galleries, and share your favorite quotes and links. Features responsive design, retina-ready assets, full-width header image, Block Editor support, support for all post formats, custom logo upload, custom widgets for Flickr and Dribbble, four page templates (including a contributors template), editor styling, like functionality via the ZillaLikes plugin and translation-ready code. Demo: https://www.andersnoren.se/themes/baskerville/
+	Version: 2.2
+	Description: Baskerville is a beautiful, responsive and retina-ready masonry theme for hoarders. It's the perfect way to showcase your posts, videos, images and galleries, and share your favorite quotes and links. Features responsive design, retina-ready assets, full-width header image, Block Editor support, support for all post formats, custom logo upload, custom widgets for Flickr and Dribbble, four page templates (including a contributors template), editor styling, like functionality via the ZillaLikes plugin and translation-ready code. Demo: https://andersnoren.se/themes/baskerville/
 	Tags: blog, three-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, portfolio, grid-layout, block-styles, wide-blocks
 	Author: Anders Norén
-	Author URI: https://www.andersnoren.se
-	Theme URI: https://www.andersnoren.se/teman/baskerville-wordpress-theme/
+	Author URI: https://andersnoren.se
+	Theme URI: https://andersnoren.se/teman/baskerville-wordpress-theme/
 	License: GNU General Public License version 2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	
+	Requires PHP: 5.4
+	Tested up to: 6.0
+
 	All files, unless otherwise stated, are released under the GNU General Public License
 	version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
 
@@ -347,7 +349,7 @@ body a {
 	display: block;
 	width: 68px;
 	height: 68px;
-	background: url(images/icons/1x/spyglass-w.png) no-repeat center;
+	background: url(assets/images/icons/1x/spyglass-w.png) no-repeat center;
 	background-size: 24px auto;
 	opacity: 0.5;
 }
@@ -586,7 +588,7 @@ body a {
 	right: 5%;
 	height: 38px;
 	width: 26px;
-	background: #2B3542 url(images/icons/1x/tack-w.png) no-repeat center;
+	background: #2B3542 url(assets/images/icons/1x/tack-w.png) no-repeat center;
 	background-size: 12px auto;
 	top: 0;	
 	text-indent: -9999px;
@@ -695,24 +697,24 @@ body a {
 
 .posts .post-meta a:hover { color: #13C4A5; }
 
-.posts .post-meta a.post-date { background-image: url(images/icons/1x/clock-g.png); }
-.posts .post-meta a.post-date:hover { background-image: url(images/icons/1x/clock-c.png); }
-.posts .post-meta a.zilla-likes { background-image: url(images/icons/1x/heart-g.png); }
+.posts .post-meta a.post-date { background-image: url(assets/images/icons/1x/clock-g.png); }
+.posts .post-meta a.post-date:hover { background-image: url(assets/images/icons/1x/clock-c.png); }
+.posts .post-meta a.zilla-likes { background-image: url(assets/images/icons/1x/heart-g.png); }
 .posts .post-meta a.zilla-likes:hover,
-.posts .post-meta a.zilla-likes.active { background-image: url(images/icons/1x/heart-c.png); color: #13C4A5; }
-.posts .post-meta a.post-comments { background-image: url(images/icons/1x/comment-g.png); }
-.posts .post-meta a.post-comments:hover { background-image: url(images/icons/1x/comment-c.png); }
+.posts .post-meta a.zilla-likes.active { background-image: url(assets/images/icons/1x/heart-c.png); color: #13C4A5; }
+.posts .post-meta a.post-comments { background-image: url(assets/images/icons/1x/comment-g.png); }
+.posts .post-meta a.post-comments:hover { background-image: url(assets/images/icons/1x/comment-c.png); }
 
 .posts .post-meta a.post-edit-link { 
 	height: 59px;
 	width: 20px;
 	text-indent: -9999px;
-	background-image: url(images/icons/1x/edit-g.png);
+	background-image: url(assets/images/icons/1x/edit-g.png);
 	background-size: 20px auto;
 	background-position: center;
 }
 
-.posts .post-meta a.post-edit-link:hover { background-image: url(images/icons/1x/edit-c.png); }
+.posts .post-meta a.post-edit-link:hover { background-image: url(assets/images/icons/1x/edit-c.png); }
 
 
 /*  Post formats  ----------------------------------------- */
@@ -818,7 +820,7 @@ body a {
 .post-link a { 
 	color: #13C4A5; 
 	padding-left: 23px;
-	background: url(images/icons/1x/link-c.png) no-repeat left center;
+	background: url(assets/images/icons/1x/link-c.png) no-repeat left center;
 	background-size: 16px auto;
 }
 
@@ -853,12 +855,12 @@ body a {
 
 .format-gallery .flex-direction-nav .flex-prev { 
 	left: 16px; 
-	background-image: url(images/icons/1x/chevron-left-w-shade.png);
+	background-image: url(assets/images/icons/1x/chevron-left-w-shade.png);
 }
 
 .format-gallery .flex-direction-nav .flex-next { 
 	right: 16px; 
-	background-image: url(images/icons/1x/chevron-right-w-shade.png);
+	background-image: url(assets/images/icons/1x/chevron-right-w-shade.png);
 }
 
 .format-gallery .flex-direction-nav a:hover { 
@@ -937,8 +939,8 @@ body.single .content.center {
 	margin-top: -21px;
 }
 
-.single .format-gallery .flex-direction-nav .flex-prev { background-image: url(images/icons/1x/chevron-left-w-shade-big.png); }
-.single .format-gallery .flex-direction-nav .flex-next { background-image: url(images/icons/1x/chevron-right-w-shade-big.png); }
+.single .format-gallery .flex-direction-nav .flex-prev { background-image: url(assets/images/icons/1x/chevron-left-w-shade-big.png); }
+.single .format-gallery .flex-direction-nav .flex-next { background-image: url(assets/images/icons/1x/chevron-right-w-shade-big.png); }
 
 /* format quote */
 
@@ -991,11 +993,11 @@ body.single .content.center {
 
 .single .post-meta p:first-child { margin-top: 0; }
 
-.single .post-meta p.post-date { background-image: url(images/icons/1x/clock-g.png); }
-.single .post-meta a.zilla-likes { background-image: url(images/icons/1x/heart-g.png); }
-.single .post-meta a.zilla-likes:hover { background-image: url(images/icons/1x/heart-c.png); }
-.single .post-meta p.post-categories { background-image: url(images/icons/1x/folder-g.png); }
-.single .post-meta p.post-tags { background-image: url(images/icons/1x/tag-g.png); }
+.single .post-meta p.post-date { background-image: url(assets/images/icons/1x/clock-g.png); }
+.single .post-meta a.zilla-likes { background-image: url(assets/images/icons/1x/heart-g.png); }
+.single .post-meta a.zilla-likes:hover { background-image: url(assets/images/icons/1x/heart-c.png); }
+.single .post-meta p.post-categories { background-image: url(assets/images/icons/1x/folder-g.png); }
+.single .post-meta p.post-tags { background-image: url(assets/images/icons/1x/tag-g.png); }
 
 .single .post-meta a { color: #9499A0; }
 .single .post-meta a:hover { color: #13C4A5; }
@@ -1012,12 +1014,12 @@ body.single .content.center {
 
 .post-nav a:first-child { margin-top: 0; }
 
-a.post-nav-prev { background-image: url(images/icons/1x/prev-g.png); }
-a.post-nav-prev:hover { background-image: url(images/icons/1x/prev-c.png); }
-a.post-nav-next { background-image: url(images/icons/1x/next-g.png); }
-a.post-nav-next:hover { background-image: url(images/icons/1x/next-c.png); }
-.single a.post-edit-link { background-image: url(images/icons/1x/edit-g.png); background-position: left 5px; }
-.single a.post-edit-link:hover { background-image: url(images/icons/1x/edit-c.png); }
+a.post-nav-prev { background-image: url(assets/images/icons/1x/prev-g.png); }
+a.post-nav-prev:hover { background-image: url(assets/images/icons/1x/prev-c.png); }
+a.post-nav-next { background-image: url(assets/images/icons/1x/next-g.png); }
+a.post-nav-next:hover { background-image: url(assets/images/icons/1x/next-c.png); }
+.single a.post-edit-link { background-image: url(assets/images/icons/1x/edit-g.png); background-position: left 5px; }
+.single a.post-edit-link:hover { background-image: url(assets/images/icons/1x/edit-c.png); }
 
 /* post-author */
 
@@ -1042,7 +1044,7 @@ a.post-nav-next:hover { background-image: url(images/icons/1x/next-c.png); }
 	top: 0;
 	width: 40px;
 	height: 70px;
-	background: #13C4A5 url(images/icons/1x/author-w.png) no-repeat center 29px;
+	background: #13C4A5 url(assets/images/icons/1x/author-w.png) no-repeat center 29px;
 	background-size: 22px auto;
 }
 
@@ -1086,10 +1088,10 @@ a.post-nav-next:hover { background-image: url(images/icons/1x/next-c.png); }
 
 .author-links a:first-child { margin-left: 0; }
 
-.author-links a.author-link-posts { background-image: url(images/icons/1x/archive-w.png); }
-.author-links a.author-link-website { background-image: url(images/icons/1x/home-w.png); }
-.author-links a.author-link-mail { background-image: url(images/icons/1x/social/mail-w.png); }
-.author-links a.author-link-twitter { background-image: url(images/icons/1x/social/twitter-w.png); }
+.author-links a.author-link-posts { background-image: url(assets/images/icons/1x/archive-w.png); }
+.author-links a.author-link-website { background-image: url(assets/images/icons/1x/home-w.png); }
+.author-links a.author-link-mail { background-image: url(assets/images/icons/1x/social/mail-w.png); }
+.author-links a.author-link-twitter { background-image: url(assets/images/icons/1x/social/twitter-w.png); }
 
 .author-links a:hover { background-color: #13C4A5; }
 
@@ -1776,7 +1778,7 @@ div#disqus_thread {
 	display: block;
 	width: 32px;
 	height: 32px;
-	background: #13C4A5 url(images/icons/1x/author-w.png) no-repeat center 8px;
+	background: #13C4A5 url(assets/images/icons/1x/author-w.png) no-repeat center 8px;
 	background-size: 14px auto;
 	border-radius: 999px;
 	position: absolute;
@@ -1907,8 +1909,8 @@ div#disqus_thread {
 
 .comment-actions a + a { margin-left: -8px; }
 
-.comment-actions .comment-reply-link { background-image: url(images/icons/1x/reply-w.png) }
-.comment-actions .comment-edit-link { background-image: url(images/icons/1x/edit-w.png) }
+.comment-actions .comment-reply-link { background-image: url(assets/images/icons/1x/reply-w.png) }
+.comment-actions .comment-edit-link { background-image: url(assets/images/icons/1x/edit-w.png) }
 
 .comment-actions a:hover { background-color: #13C4A5; color: #fff; z-index: 10; }
 
@@ -2043,9 +2045,9 @@ div#disqus_thread {
 	background-size: auto 24px;
 }
 
-input#author { background-image: url(images/icons/1x/author-g.png); }
-input#email { background-image: url(images/icons/1x/social/mail-g.png); }
-input#url { background-image: url(images/icons/1x/home-g.png); background-size: 24px auto; }
+input#author { background-image: url(assets/images/icons/1x/author-g.png); }
+input#email { background-image: url(assets/images/icons/1x/social/mail-g.png); }
+input#url { background-image: url(assets/images/icons/1x/home-g.png); background-size: 24px auto; }
 
 .comment-form textarea { height: 250px; }
 
@@ -2056,9 +2058,9 @@ input#url { background-image: url(images/icons/1x/home-g.png); background-size: 
 	background-color: #2B3542;
 }
 
-input#author:focus { background-image: url(images/icons/1x/author-w.png); }
-input#email:focus { background-image: url(images/icons/1x/social/mail-w.png); }
-input#url:focus { background-image: url(images/icons/1x/home-w.png); }
+input#author:focus { background-image: url(assets/images/icons/1x/author-w.png); }
+input#email:focus { background-image: url(assets/images/icons/1x/social/mail-w.png); }
+input#url:focus { background-image: url(assets/images/icons/1x/home-w.png); }
 
 .form-allowed-tags,
 .form-allowed-tags code {
@@ -2193,10 +2195,10 @@ p.form-submit { margin-top: 30px; }
 /* Image ---------------------------------------------------------- */
 
 
-.single .post-meta p.image-resolution { background-image: url(images/icons/1x/image-g.png); }
+.single .post-meta p.image-resolution { background-image: url(assets/images/icons/1x/image-g.png); }
 
 .single-attachment .post-author:before { 
-	background-image: url(images/icons/1x/image-w.png); 
+	background-image: url(assets/images/icons/1x/image-w.png); 
 	background-position: center 32px;
 }
 
@@ -2396,14 +2398,14 @@ p.form-submit { margin-top: 30px; }
 	margin-top: -18px;
 	right: 10px;
 	text-indent: -9999px;
-	background: url(images/icons/1x/spyglass-g.png) no-repeat center;
+	background: url(assets/images/icons/1x/spyglass-g.png) no-repeat center;
 	background-size: 24px auto;
 }
 
 .wrapper .searchform .searchsubmit:hover,
 .footer .searchform .searchsubmit:hover {
 	cursor: pointer;
-	background-image: url(images/icons/1x/spyglass-c.png);
+	background-image: url(assets/images/icons/1x/spyglass-c.png);
 }
 
 
@@ -2641,72 +2643,72 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 
 	/* 2X images */
 
-	.search-toggle { background-image: url( images/icons/2x/spyglass-w.png ); }
+	.search-toggle { background-image: url( assets/images/icons/2x/spyglass-w.png ); }
 
 	.wrapper .searchform .searchsubmit,
-	.footer .searchform .searchsubmit { background-image: url( images/icons/2x/spyglass-g.png ); }
+	.footer .searchform .searchsubmit { background-image: url( assets/images/icons/2x/spyglass-g.png ); }
 	.wrapper .searchform .searchsubmit:hover,
-	.footer .searchform .searchsubmit:hover { background-image: url( images/icons/2x/spyglass-c.png ); }
+	.footer .searchform .searchsubmit:hover { background-image: url( assets/images/icons/2x/spyglass-c.png ); }
 	
-	.post .sticky-post { background-image: url(images/icons/2x/tack-w.png); }
+	.post .sticky-post { background-image: url(assets/images/icons/2x/tack-w.png); }
 	
-	.posts .post-meta a.post-date { background-image: url(images/icons/2x/clock-g.png); }
-	.posts .post-meta a.post-date:hover { background-image: url(images/icons/2x/clock-c.png); }
-	.posts .post-meta a.zilla-likes { background-image: url(images/icons/2x/heart-g.png); }
+	.posts .post-meta a.post-date { background-image: url(assets/images/icons/2x/clock-g.png); }
+	.posts .post-meta a.post-date:hover { background-image: url(assets/images/icons/2x/clock-c.png); }
+	.posts .post-meta a.zilla-likes { background-image: url(assets/images/icons/2x/heart-g.png); }
 	.posts .post-meta a.zilla-likes:hover,
-	.posts .post-meta a.zilla-likes.active { background-image: url(images/icons/2x/heart-c.png); }
-	.posts .post-meta a.post-comments { background-image: url(images/icons/2x/comment-g.png); }
-	.posts .post-meta a.post-comments:hover { background-image: url(images/icons/2x/comment-c.png); }
+	.posts .post-meta a.zilla-likes.active { background-image: url(assets/images/icons/2x/heart-c.png); }
+	.posts .post-meta a.post-comments { background-image: url(assets/images/icons/2x/comment-g.png); }
+	.posts .post-meta a.post-comments:hover { background-image: url(assets/images/icons/2x/comment-c.png); }
 
-	.posts .post-meta a.post-edit-link { background-image: url(images/icons/2x/edit-g.png); }
-	.posts .post-meta a.post-edit-link:hover { background-image: url(images/icons/2x/edit-c.png); }
+	.posts .post-meta a.post-edit-link { background-image: url(assets/images/icons/2x/edit-g.png); }
+	.posts .post-meta a.post-edit-link:hover { background-image: url(assets/images/icons/2x/edit-c.png); }
 		
-	.post-link a { background-image: url(images/icons/2x/link-c.png); }
+	.post-link a { background-image: url(assets/images/icons/2x/link-c.png); }
 	
 	.format-gallery .flex-direction-nav .flex-prev,
-	.single .format-gallery .flex-direction-nav .flex-prev { background-image: url(images/icons/2x/chevron-left-w-shade.png); }
+	.single .format-gallery .flex-direction-nav .flex-prev { background-image: url(assets/images/icons/2x/chevron-left-w-shade.png); }
 	.format-gallery .flex-direction-nav .flex-next,
-	.single .format-gallery .flex-direction-nav .flex-next { background-image: url(images/icons/2x/chevron-right-w-shade.png); }
+	.single .format-gallery .flex-direction-nav .flex-next { background-image: url(assets/images/icons/2x/chevron-right-w-shade.png); }
 
-	.post-author:before { background-image: url( images/icons/2x/author-w.png ); }
+	.post-author:before { background-image: url( assets/images/icons/2x/author-w.png ); }
 	
-	.single .post-meta p.post-date { background-image: url(images/icons/2x/clock-g.png); }
-	.single .post-meta a.zilla-likes { background-image: url(images/icons/2x/heart-g.png); }
-	.single .post-meta a.zilla-likes:hover { background-image: url(images/icons/2x/heart-c.png); }
-	.single .post-meta p.post-categories { background-image: url(images/icons/2x/folder-g.png); }
-	.single .post-meta p.post-tags { background-image: url(images/icons/2x/tag-g.png); }
+	.single .post-meta p.post-date { background-image: url(assets/images/icons/2x/clock-g.png); }
+	.single .post-meta a.zilla-likes { background-image: url(assets/images/icons/2x/heart-g.png); }
+	.single .post-meta a.zilla-likes:hover { background-image: url(assets/images/icons/2x/heart-c.png); }
+	.single .post-meta p.post-categories { background-image: url(assets/images/icons/2x/folder-g.png); }
+	.single .post-meta p.post-tags { background-image: url(assets/images/icons/2x/tag-g.png); }
 	
-	.author-links a.author-link-posts { background-image: url(images/icons/2x/archive-w.png); }
-	.author-links a.author-link-website { background-image: url(images/icons/2x/home-w.png); }
-	.author-links a.author-link-mail { background-image: url(images/icons/2x/social/mail-w.png); }
-	.author-links a.author-link-twitter { background-image: url(images/icons/2x/social/twitter-w.png); }
+	.author-links a.author-link-posts { background-image: url(assets/images/icons/2x/archive-w.png); }
+	.author-links a.author-link-website { background-image: url(assets/images/icons/2x/home-w.png); }
+	.author-links a.author-link-mail { background-image: url(assets/images/icons/2x/social/mail-w.png); }
+	.author-links a.author-link-twitter { background-image: url(assets/images/icons/2x/social/twitter-w.png); }
 
-	a.post-nav-prev { background-image: url( images/icons/2x/prev-g.png ); }
-	a.post-nav-prev:hover { background-image: url( images/icons/2x/prev-c.png ); }
-	a.post-nav-next { background-image: url( images/icons/2x/next-g.png ); }
-	a.post-nav-next:hover { background-image: url( images/icons/2x/next-c.png ); }
+	a.post-nav-prev { background-image: url( assets/images/icons/2x/prev-g.png ); }
+	a.post-nav-prev:hover { background-image: url( assets/images/icons/2x/prev-c.png ); }
+	a.post-nav-next { background-image: url( assets/images/icons/2x/next-g.png ); }
+	a.post-nav-next:hover { background-image: url( assets/images/icons/2x/next-c.png ); }
 
-	.single a.post-edit-link { background-image: url( images/icons/2x/edit-g.png ); }
-	.single a.post-edit-link:hover { background-image: url( images/icons/2x/edit-c.png ); }
+	.single a.post-edit-link { background-image: url( assets/images/icons/2x/edit-g.png ); }
+	.single a.post-edit-link:hover { background-image: url( assets/images/icons/2x/edit-c.png ); }
 	
-	.comment.bypostauthor:after { background-image: url(images/icons/2x/author-w.png); }
+	.comment.bypostauthor:after { background-image: url(assets/images/icons/2x/author-w.png); }
 	
-	.comment-actions .comment-reply-link { background-image: url(images/icons/2x/reply-w.png); }
-	.comment-actions .comment-edit-link { background-image: url(images/icons/2x/edit-w.png); }
+	.comment-actions .comment-reply-link { background-image: url(assets/images/icons/2x/reply-w.png); }
+	.comment-actions .comment-edit-link { background-image: url(assets/images/icons/2x/edit-w.png); }
 	
-	input#author { background-image: url(images/icons/2x/author-g.png); }
-	input#email { background-image: url(images/icons/2x/social/mail-g.png); }
-	input#url { background-image: url(images/icons/2x/home-g.png); }
+	input#author { background-image: url(assets/images/icons/2x/author-g.png); }
+	input#email { background-image: url(assets/images/icons/2x/social/mail-g.png); }
+	input#url { background-image: url(assets/images/icons/2x/home-g.png); }
 	
-	input#author:focus { background-image: url(images/icons/2x/author-w.png); }
-	input#email:focus { background-image: url(images/icons/2x/social/mail-w.png); }
-	input#url:focus { background-image: url(images/icons/2x/home-w.png); }
+	input#author:focus { background-image: url(assets/images/icons/2x/author-w.png); }
+	input#email:focus { background-image: url(assets/images/icons/2x/social/mail-w.png); }
+	input#url:focus { background-image: url(assets/images/icons/2x/home-w.png); }
 	
-	.single .post-meta p.image-resolution { background-image: url(images/icons/2x/image-g.png); }
-	.single-attachment .post-author:before { background-image: url(images/icons/2x/image-w.png); }
+	.single .post-meta p.image-resolution { background-image: url(assets/images/icons/2x/image-g.png); }
+	.single-attachment .post-author:before { background-image: url(assets/images/icons/2x/image-w.png); }
 	
-	.searchform .searchsubmit { background-image: url(images/icons/2x/spyglass-g.png); }
-	.searchform .searchsubmit:hover { background-image: url(images/icons/2x/spyglass-c.png); }
+	.searchform .searchsubmit { background-image: url(assets/images/icons/2x/spyglass-g.png); }
+	.searchform .searchsubmit:hover { background-image: url(assets/images/icons/2x/spyglass-c.png); }
 	
 }
 

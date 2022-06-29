@@ -60,13 +60,13 @@
 
 		<p class="credits-left fleft">
 		
-			&copy; <?php echo date( 'Y' ) ?> <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a><span> &mdash; <?php printf( __( 'Powered by <a href="%s">WordPress</a>', 'baskerville'), 'http://www.wordpress.org' ); ?></span>
+			&copy; <?php echo date( 'Y' ) ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a><span> &mdash; <?php printf( __( 'Powered by <a href="%s">WordPress</a>', 'baskerville'), 'http://www.wordpress.org' ); ?></span>
 		
 		</p>
 		
 		<p class="credits-right fright">
 			
-			<span><?php printf( __( 'Theme by <a href="%s">Anders Noren</a>', 'baskerville' ), 'https://www.andersnoren.se' ); ?> &mdash; </span><a class="tothetop" href="#"><?php _e( 'Up', 'baskerville' ); ?> &uarr;</a>
+			<span><?php printf( __( 'Theme by <a href="%s">Anders Noren</a>', 'baskerville' ), 'https://andersnoren.se' ); ?> &mdash; </span><a class="tothetop" href="#"><?php _e( 'Up', 'baskerville' ); ?> &uarr;</a>
 			
 		</p>
 		

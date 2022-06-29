@@ -10,7 +10,7 @@
 	font-size: 18px;
 }
 
-.editor-rich-text__tinymce {
+:root .editor-styles-wrapper {
 	color: #444;
 	font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -38,7 +38,7 @@
 
 /* Typography --------------------------------------------- */
 
-.editor-post-title__block .editor-post-title__input {
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
 	color: #2B3542;
 	font-family: 'Roboto Slab', sans-serif !important;
 	font-size: 40px;

@@ -18,7 +18,7 @@
 			wp_body_open(); 
 		}
 		
-		$background_image_url = get_header_image() ? get_header_image() : get_template_directory_uri() . '/images/header.jpg'; 
+		$background_image_url = get_header_image() ? get_header_image() : get_template_directory_uri() . '/assets/images/header.jpg'; 
 		
 		?>
 

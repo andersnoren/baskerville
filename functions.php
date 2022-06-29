@@ -31,7 +31,7 @@ if ( ! function_exists( 'baskerville_setup' ) ) {
 		add_theme_support( 'custom-header', array(
 			'width'         => 1440,
 			'height'        => 221,
-			'default-image' => get_template_directory_uri() . '/images/header.jpg',
+			'default-image' => get_template_directory_uri() . '/assets/images/header.jpg',
 			'uploads'       => true,
 			'header-text'  	=> false
 		) );
@@ -74,9 +74,9 @@ if ( ! function_exists( 'baskerville_load_javascript_files' ) ) :
 
 		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-		wp_register_script( 'baskerville_flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array(), '2.7.2' );
+		wp_register_script( 'baskerville_flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider-min.js', array(), '2.7.2' );
 
-		wp_enqueue_script( 'baskerville_global', get_template_directory_uri() . '/js/global.js', array( 'jquery', 'masonry', 'imagesloaded', 'baskerville_flexslider' ), $theme_version );
+		wp_enqueue_script( 'baskerville_global', get_template_directory_uri() . '/assets/js/global.js', array( 'jquery', 'masonry', 'imagesloaded', 'baskerville_flexslider' ), $theme_version );
 
 		if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -99,20 +99,8 @@ if ( ! function_exists( 'baskerville_load_style' ) ) :
 		$dependencies = array();
 		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
-
-		if ( 'off' !== $google_fonts ) {
-
-			// Register Google Fonts
-			wp_register_style( 'baskerville_googleFonts', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300|Pacifico:400', array(), $theme_version );
-			$dependencies[] = 'baskerville_googleFonts';
-
-		}
+		wp_register_style( 'baskerville_googleFonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		$dependencies[] = 'baskerville_googleFonts';
 
 		// Enqueue the styles
 		wp_enqueue_style( 'baskerville_style', get_template_directory_uri() . '/style.css', $dependencies, $theme_version );
@@ -130,19 +118,7 @@ endif;
 if ( ! function_exists( 'baskerville_add_editor_styles' ) ) {
 	function baskerville_add_editor_styles() {
 
-		add_editor_style( 'baskerville-editor-style.css' );
-
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
-
-		if ( 'off' !== $google_fonts ) {
-			$font_url = '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300';
-			add_editor_style( str_replace( ',', '%2C', $font_url ) );
-		}
+		add_editor_style( array( 'assets/css/baskerville-editor-style.css', 'assets/css/fonts.css' ) );
 
 	}
 	add_action( 'init', 'baskerville_add_editor_styles' );
@@ -698,25 +674,10 @@ endif;
 if ( ! function_exists( 'baskerville_block_editor_styles' ) ) :
 	function baskerville_block_editor_styles() {
 
-		$dependencies = array();
+		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'baskerville' );
-
-		if ( 'off' !== $google_fonts ) {
-
-			// Register Google Fonts
-			wp_register_style( 'baskerville-block-editor-styles-font', '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400italic,700,700italic,300', false, 1.0, 'all' );
-			$dependencies[] = 'baskerville-block-editor-styles-font';
-
-		}
-
-		// Enqueue the editor styles
-		wp_enqueue_style( 'baskerville-block-editor-styles', get_theme_file_uri( '/baskerville-gutenberg-editor-style.css' ), $dependencies, '1.0', 'all' );
+		wp_register_style( 'baskerville-block-editor-styles-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_enqueue_style( 'baskerville-block-editor-styles', get_theme_file_uri( '/assets/css/baskerville-gutenberg-editor-style.css' ), array( 'baskerville-block-editor-styles-font' ), $theme_version, 'all' );
 
 	}
 	add_action( 'enqueue_block_editor_assets', 'baskerville_block_editor_styles', 1 );
