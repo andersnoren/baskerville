@@ -99,7 +99,7 @@ if ( ! function_exists( 'baskerville_load_style' ) ) :
 		$dependencies = array();
 		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-		wp_register_style( 'baskerville_googleFonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_register_style( 'baskerville_googleFonts', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		$dependencies[] = 'baskerville_googleFonts';
 
 		// Enqueue the styles
@@ -676,7 +676,7 @@ if ( ! function_exists( 'baskerville_block_editor_styles' ) ) :
 
 		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-		wp_register_style( 'baskerville-block-editor-styles-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_register_style( 'baskerville-block-editor-styles-font', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		wp_enqueue_style( 'baskerville-block-editor-styles', get_theme_file_uri( '/assets/css/baskerville-gutenberg-editor-style.css' ), array( 'baskerville-block-editor-styles-font' ), $theme_version, 'all' );
 
 	}
