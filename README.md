@@ -2,7 +2,7 @@
 
 Baskerville is a beautiful, responsive and retina-ready masonry theme for hoarders. It's the perfect way to showcase your posts, videos, images and galleries, and share your favorite quotes and links. Features responsive design, retina-ready assets, full-width header image, Block Editor support, support for all post formats, custom logo upload, custom widgets for Flickr and Dribbble, four page templates (including a contributors template), editor styling, like functionality via the ZillaLikes plugin and translation-ready code.
 
-![Baskerville](https://github.com/andersnoren/baskerville/blob/main/screenshot.png)
+![Baskerville](https://github.com/andersnoren/baskerville/blob/master/screenshot.jpg)
 
 You can download the latest stable release of Baskerville [from WordPress.org](https://wordpress.org/themes/baskerville/).
 
