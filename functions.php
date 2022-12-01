@@ -218,7 +218,7 @@ if ( ! function_exists( 'baskerville_pagination_classes_prev' ) ) {
 
 class baskerville_nav_walker extends Walker_Nav_Menu {
 
-    function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+    function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
         $id_field = $this->db_fields['id'];
         if ( ! empty( $children_elements[$element->$id_field] ) ) {
             $element->classes[] = 'has-children';

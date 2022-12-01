@@ -115,6 +115,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.2.2 (2022-12-01)
+-------------------------
+- Fixed a deprecation notice for baskerville_nav_walker::display_element().
+
 Version 2.2.1 (2022-07-01)
 -------------------------
 - Improved fonts.css enqueue for child themes.
