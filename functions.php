@@ -176,15 +176,6 @@ if ( ! function_exists( 'baskerville_sidebar_registration' ) ) :
 	}
 	add_action( 'widgets_init', 'baskerville_sidebar_registration' ); 
 endif;
-	
-
-/* ---------------------------------------------------------------------------------------------
-   ADD THEME WIDGETS
-   --------------------------------------------------------------------------------------------- */
-
-
-require_once( get_template_directory() . '/widgets/dribbble-widget.php' );
-require_once( get_template_directory() . '/widgets/flickr-widget.php' );
 
 
 /* ---------------------------------------------------------------------------------------------

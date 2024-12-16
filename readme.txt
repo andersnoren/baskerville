@@ -3,7 +3,7 @@ Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5.0
 Requires PHP: 5.4
-Tested up to: 6.0
+Tested up to: 6.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -114,6 +114,12 @@ Source: http://www.unsplash.com
 
 
 == Changelog ==
+
+Version 2.3 (2024-12-16)
+-------------------------
+- Removed the Flickr and Dribbble widgets, since the APIs they relied on no longer exist and the former included non-PHP 8 friendly code.
+- Updated theme description to remove mentions of custom widgets.
+- Bumped "Tested up to".
 
 Version 2.2.2 (2022-12-01)
 -------------------------
