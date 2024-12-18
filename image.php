@@ -20,9 +20,9 @@
 															
 						<div class="featured-media">
 						
-							<?php $image_url = wp_get_attachment_image_url( $post->ID, 'full' ); ?>
+							<?php $image_array = wp_get_attachment_image_src( $post->ID, 'full' ); ?>
 						
-							<a href="<?php echo esc_url( $image_url ); ?>" rel="attachment">
+							<a href="<?php echo esc_url( $image_array[0] ); ?>" rel="attachment">
 								<?php echo wp_get_attachment_image( $post->ID, 'post-image' ); ?>
 							</a>
 						
