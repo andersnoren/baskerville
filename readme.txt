@@ -115,6 +115,10 @@ Source: http://www.unsplash.com
 
 == Changelog ==
 
+Version 2.3.1 (2024-12-18)
+-------------------------
+- Fixed a PHP warning in image.php. (Props to @n-goncalves.)[https://github.com/andersnoren/baskerville/pull/2]
+
 Version 2.3 (2024-12-16)
 -------------------------
 - Removed the Flickr and Dribbble widgets, since the APIs they relied on no longer exist and the former included non-PHP 8 friendly code.
