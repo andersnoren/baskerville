@@ -3,10 +3,17 @@ Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5.0
 Requires PHP: 5.4
-Tested up to: 6.7
+Tested up to: 7.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+A beautiful, responsive and retina-ready masonry theme for hoarders.
+
+
+== Description ==
+
+Baskerville is a beautiful, responsive and retina-ready masonry theme for hoarders. It's the perfect way to showcase your posts, videos, images and galleries, and share your favorite quotes and links. Features responsive design, retina-ready assets, full-width header image, Block Editor support, support for all post formats, custom logo upload, four page templates (including a contributors template), editor styling and translation-ready code. Demo: https://baskerville.andersnoren.se
 
 
 == Installation ==
@@ -19,18 +26,17 @@ All theme specific options are handled through the WordPress Customizer.
 
 == Frequently Asked Questions ==
 
-== Implement Like Functionality
+= Where can I get support? =
+Post your question in the Baskerville support forum on WordPress.org: https://wordpress.org/support/theme/baskerville/
 
-1. Go to http://www.themezilla.com/plugins/zillalikes/ and download the plugin.
-2. Upload the plugin to the /wp-content/plugins/ folder on your WordPress installation.
-3. Go to Admin > Plugins > Installed Plugins.
-4. Find "ZillaLikes" in the list and activate it.
-5. Click ZillaLikes in the menu.
-6. Check "I want to use my own CSS styles".
-7. Click "Save Changes".
+= Where can I request a feature or report a bug? =
+Open an issue in the Baskerville GitHub repository: https://github.com/andersnoren/baskerville
+
+= Does Baskerville support likes? =
+Baskerville includes styles for the ZillaLikes plugin, which displays a like button in the post meta. ZillaLikes has since been retired and is no longer available for download, but the integration still works if you already have the plugin installed.
 
 
-== The Link Format
+= How do I use the link post format? =
 
 1. Create a new post.
 2. Select "Link" in the Format window to the right.
@@ -46,7 +52,7 @@ The rest of the content...
 6. The link title and link will now be displayed in a separate section from the content of your post.
 
 
-== The Quote Format
+= How do I use the quote post format? =
 
 1. Create a new post.
 2. Select "Quote" in the Format window to the right.
@@ -63,7 +69,7 @@ The rest of the content...
 6. The quote will now be displayed in a separate section from the content of your post.
 
 
-== The Video Format
+= How do I use the video post format? =
 
 1. Create a new post.
 2. Select "Video" in the Format window to the right.
@@ -76,6 +82,12 @@ The rest of the content...
 
 5. Publish.
 6. The video will now be displayed in a separate section from the content of your post.
+
+
+== Copyright ==
+
+Baskerville WordPress Theme, Copyright 2014-2026 Anders Norén
+Baskerville is distributed under the terms of the GNU GPL.
 
 
 == Licenses ==
@@ -102,18 +114,30 @@ Source: http://flexslider.woothemes.com
 
 Standard header image
 License: CC0 1.0 Universal 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
-screenshot.png header image
+screenshot.jpg header image
 License: CC0 Public Domain 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
-screenshot.png post image
+screenshot.jpg post image
 License: CC0 Public Domain 
-Source: http://www.unsplash.com
+Source: Unsplash (added before the 2017 change to the Unsplash license, when its photos were released under CC0)
 
 
 == Changelog ==
+
+Version 2.3.2 (2026-11-03)
+-------------------------
+- Tested with WordPress 7.1.
+- Switched to the variable version of Roboto, which replaces five font files with two.
+- Replaced deprecated jQuery methods (.resize(), .click(), .unbind(), .bind(), .delegate(), .hover(), .focus() and .blur()) with .on(), .off() and .trigger().
+- Switched from jquery.flexslider-min.js to the updated jquery.flexslider.js, and removed jquery.flexslider-min.js.
+- Fixed the block editor styles not loading in the iframed editor.
+- Updated the demo URL.
+- Removed the mention of the ZillaLikes plugin from the theme description, since the plugin has been retired. The integration still works for sites that already have it installed.
+- Added the Requires at least header to style.css.
+- Added Description, Copyright and Upgrade Notice sections to the readme, fixed the FAQ formatting, and updated the image source notes.
 
 Version 2.3.1 (2024-12-18)
 -------------------------
@@ -411,3 +435,9 @@ Version 1.01 (2014-06-07)
 
 Version 1.00 (2014-06-07)
 -------------------------
+
+
+== Upgrade Notice ==
+
+= 2.3.2 =
+Tested with WordPress 7.1. Fixes the block editor styles in the iframed editor.

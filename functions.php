@@ -74,7 +74,7 @@ if ( ! function_exists( 'baskerville_load_javascript_files' ) ) :
 
 		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
-		wp_register_script( 'baskerville_flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider-min.js', array(), '2.7.2' );
+		wp_register_script( 'baskerville_flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider.js', array( 'jquery' ), $theme_version );
 
 		wp_enqueue_script( 'baskerville_global', get_template_directory_uri() . '/assets/js/global.js', array( 'jquery', 'masonry', 'imagesloaded', 'baskerville_flexslider' ), $theme_version );
 
@@ -665,11 +665,16 @@ endif;
 if ( ! function_exists( 'baskerville_block_editor_styles' ) ) :
 	function baskerville_block_editor_styles() {
 
+		// Only load in the editor. Hooked to enqueue_block_assets so the styles reach the iframed editor canvas.
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		$theme_version = wp_get_theme( 'baskerville' )->get( 'Version' );
 
 		wp_register_style( 'baskerville-block-editor-styles-font', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		wp_enqueue_style( 'baskerville-block-editor-styles', get_theme_file_uri( '/assets/css/baskerville-gutenberg-editor-style.css' ), array( 'baskerville-block-editor-styles-font' ), $theme_version, 'all' );
 
 	}
-	add_action( 'enqueue_block_editor_assets', 'baskerville_block_editor_styles', 1 );
+	add_action( 'enqueue_block_assets', 'baskerville_block_editor_styles', 1 );
 endif;
